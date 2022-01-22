@@ -20,32 +20,36 @@ void msg_handler(void)
 		increaseBlindPositionByLength(-1);
 		HAL_UART_Transmit(&huart1, (uint8_t*)"Servo going down by 1.\n", strlen("Servo going down by 1.\n"), 500);
 	} else if (strncmp (buffer, "SET MIN LDR READING xxx", strlen("SET MIN LDR READING")) == 0) {
-		uint16_t percent = getLastWordAsInt(buffer);
-		setMinLDRreading(percent);
+		uint16_t ldrValue = getLastWordAsInt(buffer);
+		setMinLDRreading(ldrValue);
 	} else if (strncmp (buffer, "SET MAX LDR READING xxx", strlen("SET MAX LDR READING")) == 0) {
-		uint16_t percent = getLastWordAsInt(buffer);
-		setMaxLDRreading(percent);
+		uint16_t ldrValue = getLastWordAsInt(buffer);
+		setMaxLDRreading(ldrValue);
 	} else if (strncmp (buffer, "SET UPPER LDR CONTROL LIMIT xxx", strlen("SET UPPER LDR CONTROL LIMIT")) == 0) {
-		uint16_t percent = getLastWordAsInt(buffer);
-		setUpperLDRControlLimit(percent);
+		uint16_t ldrValue = getLastWordAsInt(buffer);
+		setUpperLDRControlLimit(ldrValue);
 	} else if (strncmp (buffer, "SET LOWER LDR CONTROL LIMIT xxx", strlen("SET LOWER LDR CONTROL LIMIT")) == 0) {
-		uint16_t percent = getLastWordAsInt(buffer);
-		setLowerLDRControlLimit(percent);
+		uint16_t ldrValue = getLastWordAsInt(buffer);
+		setLowerLDRControlLimit(ldrValue);
 	} else if (string_compare(buffer, "PRINT MIN LDR READING", strlen("PRINT MIN LDR READING"))) {
-		sprintf(info, "minLdrReading=%d", getMinLDRreading());
-		strcpy(info, "\n");
+		uint16_t ldrValue = getMinLDRreading();
+		sprintf(info, "minLdrReading=%d", ldrValue);
+		strcat(info, "\n");
 		HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
 	} else if (string_compare(buffer, "PRINT MAX LDR READING", strlen("PRINT MAX LDR READING"))) {
-		sprintf(info, "minLdrReading=%d", getMaxLDRreading());
-		strcpy(info, "\n");
+		uint16_t ldrValue = getMaxLDRreading();
+		sprintf(info, "maxLdrReading=%d", ldrValue);
+		strcat(info, "\n");
 		HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
 	} else if (string_compare(buffer, "PRINT UPPER LDR CONTROL LIMIT", strlen("PRINT UPPER LDR CONTROL LIMIT"))) {
-		sprintf(info, "minLdrReading=%d", getUpperLDRControlLimit());
-		strcpy(info, "\n");
+		uint16_t ldrValue = getUpperLDRControlLimit();
+		sprintf(info, "upperLdrControlLimit=%d", ldrValue);
+		strcat(info, "\n");
 		HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
 	} else if (string_compare(buffer, "PRINT LOWER LDR CONTROL LIMIT", strlen("PRINT LOWER LDR CONTROL LIMIT"))) {
-		sprintf(info, "minLdrReading=%d", getLowerLDRControlLimit());
-		strcpy(info, "\n");
+		uint16_t ldrValue = getLowerLDRControlLimit();
+		sprintf(info, "lowerLdrControlLimit=%d", ldrValue);
+		strcat(info, "\n");
 		HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
 	} else {
 		strcat(buffer, "\n");

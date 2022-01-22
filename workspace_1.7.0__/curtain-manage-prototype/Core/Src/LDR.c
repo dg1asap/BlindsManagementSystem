@@ -68,6 +68,10 @@ uint16_t convertPercentToLDRvalue(uint16_t percent) {
 	return (minLDRreading + (range * percent / 100));
 }
 
+uint16_t convertLDRvalueToPercent(uint16_t ldrValue) {
+	return ((ldrValue / maxLDRreading)*100);
+}
+
 bool isAboveUpperLimit() {
 	return getAverageMeassure() > upperLDRControlLimit;
 }
