@@ -1,0 +1,3 @@
+myutilities.c:9:9:string_compare	32	static
+myutilities.c:20:7:getLastN	24	static
+myutilities.c:25:10:getLastWordAsInt	24	static
