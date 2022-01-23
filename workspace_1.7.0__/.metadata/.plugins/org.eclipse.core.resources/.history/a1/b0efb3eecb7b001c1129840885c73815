@@ -1,0 +1,93 @@
+#include "LDR.h"
+
+LDR ldr = {{0}, 0, 1, 1, 3000, 2000, 500};
+
+uint16_t getLightIntensity(LDR ldr) {
+	HAL_ADC_PollForConversion(&hadc, HAL_MAX_DELAY);
+
+	uint16_t lightIntensity;
+	/* Check if the continous conversion of regular channel is finished */
+	if ((HAL_ADC_GetState(&hadc) & HAL_ADC_STATE_REG_EOC) == HAL_ADC_STATE_REG_EOC)
+	{
+		/*##-6- Get the converted value of regular channel  ########################*/
+		lightIntensity = HAL_ADC_GetValue(&hadc);
+	}
+
+	return lightIntensity;
+}
+
+void measure(LDR ldr) {
+	ldr.messures[ldr.measureNumber - 1] = ldr.getLightIntensity();
+	ldr.measureNumber++;
+
+	if (ldr.measureIsAutoOfRange()) {
+		ldr.measureNumber = 1;
+	}
+}
+
+bool measureIsAutoOfRange(_LDR ldr) {
+	return ldr.measureNumber > NUMBER_OF_LDR_MEASURE;
+}
+
+bool areNewMeassures(_LDR ldr) {
+	return ldr.measureNumber >= NUMBER_OF_LDR_MEASURE;
+}
+
+uint16_t getAverageMeassure(LDR ldr) {
+	ldr.averageMeasure = 0;
+	for (int i = 0; i < NUMBER_OF_LDR_MEASURE; i++) {
+		ldr.averageMeasure += ldr.messures[i];
+	}
+
+	return (ldr.averageMeasure/NUMBER_OF_LDR_MEASURE);
+}
+
+uint16_t convertPercentToValue(LDR ldr, uint16_t percent) {
+	uint16_t range = ldr.maxReading - LDR.minReading;
+	return (ldr.minLDRreading + (range * percent / 100));
+}
+
+uint16_t convertLDRvalueToPercent(LDR ldr, uint16_t ldrValue) {
+	return ((ldrValue / ldr.maxReading)*100);
+}
+
+bool isAboveUpperLimit(LDR ldr) {
+	return ldr.getAverageMeassure() > ldr.upperControlLimit;
+}
+
+bool isBelowLowerLimit(LDR ldr) {
+	return ldr.getAverageMeassure() < ldr.lowerControlLimit;
+}
+
+void setMinReading(LDR ldr, uint16_t minReading_) {
+	ldr.minLDRreading = minReading_;
+}
+
+void setMaxReading(LDR ldr, uint16_t maxReading_) {
+	ldr.maxReading = maxReading_;
+}
+
+void setUpperControlLimit(LDR ldr, uint16_t upperContolLimit_) {
+	ldr.upperControlLimit = upperContolLimit_;
+}
+
+void setLowerControlLimit(LDR ldr, uint16_t lowerControlLimit_) {
+	ldr.lowerControlLimit = lowerControlLimit_;
+}
+
+uint16_t getMinReading(LDR ldr) {
+	return ldr.minReading;
+}
+
+uint16_t getMaxReading(LDR ldr) {
+	return ldr.maxReading;
+}
+
+uint16_t getUpperControlLimit(LDR ldr) {
+	return ldr.upperControlLimit;
+}
+
+uint16_t getLowerControlLimit(LDR ldr) {
+	return ldr.lowerControlLimit;
+}
+

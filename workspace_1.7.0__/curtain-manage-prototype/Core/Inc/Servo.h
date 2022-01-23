@@ -1,35 +1,32 @@
 #ifndef INC_SERVO_H_
 #define INC_SERVO_H_
 
-typedef struct _Servo Servo;
-
 #include "main.h"
 
-uint16_t blind_height;
-uint16_t current_blind_positon;
-uint16_t newBlindPosition;
-
-void steerBlind();
-void increaseBlindPositionByLength(uint16_t length);
-bool canSetBlindPosition(uint16_t newBlindPosition_);
-void setBlindPosition(uint16_t newBlindPosition_);
-void setBlindPositionToMax();
-void setBlindPositionToMin();
-bool canRollUpBlind();
-bool canRollDownBlind();
-bool canStopRollingBlind();
-bool isRolledMaxUp();
-bool isRolledMaxDown();
-bool isBelowNewBlindPosition();
-bool isAboveNewBlindPosition();
-bool isLongerThanBlind(uint16_t blindLength);
-bool isPositiveLength(uint16_t blindLength);
-void rollDownBlind();
-void rollUpBlind();
-void stopRollingBlind();
+typedef struct {
+	uint16_t maxPosition;
+	uint16_t currentPositon;
+	uint16_t newPosition;
+} Servo;
 
 
-
-
+void steer(Servo servo);
+void increasePositionBy(Servo servo, uint16_t length);
+bool canSetPosition(Servo servo, uint16_t newPosition_);
+void setPosition(Servo servo, uint16_t newPosition_);
+void setPositionToMax(Servo servo);
+void setPositionToMin(Servo servo);
+bool canRollUp(Servo servo);
+bool canRollDown(Servo servo);
+bool canStopRolling(Servo servo);
+bool isRolledMaxUp(Servo servo);
+bool isRolledMaxDown(Servo servo);
+bool isBelowNewPosition(Servo servo);
+bool isAboveNewPosition(Servo servo);
+bool isLongerThan(Servo servo, uint16_t blindLength);
+bool isPositiveLength(Servo servo, uint16_t blindLength);
+void rollDown(Servo servo);
+void rollUp(Servo servo);
+void stopRolling(Servo servo);
 
 #endif /* INC_SERVO_H_ */

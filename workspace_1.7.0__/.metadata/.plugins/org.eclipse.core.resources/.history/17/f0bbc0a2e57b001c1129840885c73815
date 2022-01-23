@@ -1,0 +1,32 @@
+/*
+ * global.h
+ *
+ *  Created on: Jan 23, 2022
+ *      Author: asap
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+typedef struct LDR {
+	uint16_t messures[NUMBER_OF_LDR_MEASURE];
+	uint16_t averageMeasure;
+	uint8_t measureNumber;
+	uint16_t minReading;
+	uint16_t maxReading;
+	uint16_t upperControlLimit;
+	uint16_t lowerControlLimit;
+} ldr;
+//Any type definitions needed
+typedef struct a_struct
+{
+    int var1;
+    long var2;
+} a_struct;
+
+//Global data that will be defined in main.c
+extern a_struct GlobalStruct;
+extern int GlobalCounter;
+
+
+#endif /* INC_GLOBAL_H_ */

@@ -1,95 +1,84 @@
 #include "Servo.h"
 
-struct _Servo {
-	//int x;
-};
-
-uint16_t blind_height = 3;
-uint16_t current_blind_positon = 3;
-uint16_t newBlindPosition = 3;
-
-void steerBlind() {
-	if (canRollDownBlind()) {
-		rollDownBlind();
-	} else if (canRollUpBlind()) {
-		rollUpBlind();
-	} else if (canStopRollingBlind()) {
-		stopRollingBlind();
-	}
+void steer(Servo servo) {
+	if (canRollDown(servo))
+		rollDown(servo);
+	else if (canRollUp(servo))
+		rollUp(servo);
+	else if (canStopRolling(servo))
+		stopRolling(servo);
 }
 
-void increaseBlindPositionByLength(uint16_t length) {
-	uint16_t newBlindPosition_ = length + newBlindPosition;
-	if (canSetBlindPosition(newBlindPosition_)) {
-		setBlindPosition(newBlindPosition_);
-	}
+void increasePositionBy(Servo servo, uint16_t length) {
+	uint16_t newPosition_ = length + servo.newPosition;
+	if (canSetPosition(servo, newPosition_))
+		setPosition(servo, newPosition_);
 }
 
-bool canSetBlindPosition(uint16_t newBlindPosition_) {
-	return !isLongerThanBlind(newBlindPosition_) && isPositiveLength(newBlindPosition_);
+bool canSetPosition(Servo servo, uint16_t newPosition_) {
+	return !isLongerThan(servo, newPosition_) && isPositiveLength(servo, newPosition_);
 }
 
-void setBlindPosition(uint16_t newBlindPosition_) {
-	if (canSetBlindPosition(newBlindPosition_)) {
-		newBlindPosition = newBlindPosition_;
-	}
+void setPosition(Servo servo, uint16_t newPosition_) {
+	if (canSetPosition(servo, newPosition_))
+		servo.newPosition = newPosition_;
 }
 
-void setBlindPositionToMax() {
-	newBlindPosition = blind_height;
+void setPositionToMax(Servo servo) {
+	servo.newPosition = servo.maxPosition;
 }
 
-void setBlindPositionToMin() {
-	newBlindPosition = 0;
+void setPositionToMin(Servo servo) {
+	servo.newPosition = 0;
 }
 
-bool canRollUpBlind() {
-	return isBelowNewBlindPosition() && isRolledMaxUp();
+bool canRollUp(Servo servo) {
+	return isBelowNewPosition(servo) && isRolledMaxUp(servo);
 }
 
-bool canRollDownBlind() {
-	return isAboveNewBlindPosition() && isRolledMaxDown();
+bool canRollDown(Servo servo) {
+	return isAboveNewPosition(servo) && isRolledMaxDown(servo);
 }
 
-bool canStopRollingBlind() {
-	return current_blind_positon == newBlindPosition;
+bool canStopRolling(Servo servo) {
+	return servo.currentPositon == servo.newPosition;
 }
 
-bool isRolledMaxUp() {
-	return current_blind_positon < blind_height;
+bool isRolledMaxUp(Servo servo) {
+	return servo.currentPositon < servo.maxPosition;
 }
 
-bool isRolledMaxDown() {
-	return current_blind_positon > 0;
+bool isRolledMaxDown(Servo servo) {
+	return servo.currentPositon > 0;
 }
 
-bool isBelowNewBlindPosition() {
-	return current_blind_positon < newBlindPosition;
+bool isBelowNewPosition(Servo servo) {
+	return servo.currentPositon < servo.newPosition;
 }
 
-bool isAboveNewBlindPosition() {
-	return current_blind_positon > newBlindPosition;
+bool isAboveNewPosition(Servo servo) {
+	return servo.currentPositon > servo.newPosition;
 }
 
-bool isLongerThanBlind(uint16_t blindLength) {
-	return blindLength > blind_height;
+bool isLongerThan(Servo servo, uint16_t blindLength) {
+	return blindLength > servo.maxPosition;
 }
 
-bool isPositiveLength(uint16_t blindLength) {
+bool isPositiveLength(Servo servo, uint16_t blindLength) {
 	return blindLength >= 0;
 }
 
-void rollDownBlind() {
+void rollDown(Servo servo) {
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1394);
-	current_blind_positon--;
+	servo.currentPositon--;
 }
 
-void rollUpBlind() {
+void rollUp(Servo servo) {
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1568);
-	current_blind_positon++;
+	servo.currentPositon++;
 }
 
-void stopRollingBlind() {
+void stopRolling(Servo servo) {
 //	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1474);
 	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1460);
 }

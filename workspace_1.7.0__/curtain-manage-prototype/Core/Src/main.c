@@ -43,11 +43,10 @@
 
 /* USER CODE END PM */
 
-/* Private variables ---------------------------------------------------------*/
+/* Private variables --------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
 
-bool isDark = true;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,9 +57,8 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-
-
+Servo servo = {3, 3, 3};
+LDR ldr = {{0}, 0, 1, 1, 3000, 2000, 500};
 /* USER CODE END 0 */
 
 /**
@@ -101,14 +99,12 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_Delay(1200);
   memset(buffer, 0, sizeof(buffer));
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1); // to chyba do servo
+  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+  HAL_TIM_Base_Start_IT(&htim2);
+  HAL_TIM_Base_Start_IT(&htim6);
   HAL_TIM_Base_Start_IT(&htim7);
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
   __HAL_UART_ENABLE_IT(&huart2, UART_IT_RXNE);
-
-  //SERVO
-  HAL_TIM_Base_Start_IT(&htim6);
-  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -170,25 +166,20 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if (htim->Instance == TIM2) {
-		steerBlind();
-	} else if (htim->Instance == TIM6) {
-		if (areNewMeassures()) {
+	if (htim->Instance == TIM2)
+		steer(servo);
+	else if (htim->Instance == TIM6) {
+		if (areNewMeassures(ldr))
 			setBlindWithLDR();
-		}
-		measureLDR();
+		measure(ldr);
 	}
 }
 
 void setBlindWithLDR() {
-	//if (getAverageMeassure() > 2000) {
-	if (isAboveUpperLimit()) {
-		setBlindPosition(blind_height);
-	//} else if (getAverageMeassure() < 500) {
-	} else if (isBelowLowerLimit()) {
-		setBlindPosition(0);
-	}
-
+	if (isAboveUpperLimit(ldr))
+		setPositionToMax(servo);
+	else if (isBelowLowerLimit(ldr))
+		setPositionToMin(servo);
 }
 
 /* USER CODE END 4 */

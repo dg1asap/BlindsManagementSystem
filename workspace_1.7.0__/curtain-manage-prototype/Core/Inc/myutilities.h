@@ -6,8 +6,7 @@
 
 #include "main.h"
 
-
-uint8_t string_compare(char array1[], char array2[], uint16_t length);
+uint8_t stringCompare(char array1[], char array2[], uint16_t length);
 char *getLastN(char *str, size_t n);
 uint16_t getLastWordAsInt(char *str);
 

@@ -1,114 +1,86 @@
 #include "LDR.h"
 
-struct _LDR {
-	bool isDark; // 0 - Zwinieta ___ 1 - rozwianieta
-};
-
-uint16_t messureFromLdr[NUMBER_OF_LDR_MEASURE] = {0};
-uint16_t averageMeasureFromLdr = 0;
-uint8_t ldrMeasureNumber = 1;
-
-uint16_t minLDRreading = 1;
-uint16_t maxLDRreading = 3000;
-uint16_t upperLDRControlLimit = 2000;
-uint16_t lowerLDRControlLimit = 500;
-
-void SetDarkness(LDR *ldr, bool val)
-{
-	ldr->isDark = val;
-}
-
-bool GetDarkness(LDR *ldr)
-{
-	return ldr->isDark;
-}
-
-uint16_t getLightIntensity() {
+uint16_t getLightIntensity(LDR ldr) {
 	HAL_ADC_PollForConversion(&hadc, HAL_MAX_DELAY);
 
 	uint16_t lightIntensity;
 	/* Check if the continous conversion of regular channel is finished */
 	if ((HAL_ADC_GetState(&hadc) & HAL_ADC_STATE_REG_EOC) == HAL_ADC_STATE_REG_EOC)
-	{
-		/*##-6- Get the converted value of regular channel  ########################*/
-		lightIntensity = HAL_ADC_GetValue(&hadc);
-	}
+		lightIntensity = HAL_ADC_GetValue(&hadc); /* Get the converted value of regular channel */
 
 	return lightIntensity;
 }
 
-void measureLDR() {
-	messureFromLdr[ldrMeasureNumber - 1] = getLightIntensity();
-	ldrMeasureNumber++;
+void measure(LDR ldr) {
+	ldr.messures[ldr.measureNumber - 1] = getLightIntensity(ldr);
+	ldr.measureNumber++;
 
-	if (measureIsAutoOfRange()) {
-		ldrMeasureNumber = 1;
-	}
+	if (measureIsAutoOfRange(ldr))
+		ldr.measureNumber = 1;
 }
 
-bool measureIsAutoOfRange() {
-	return ldrMeasureNumber > NUMBER_OF_LDR_MEASURE;
+bool measureIsAutoOfRange(LDR ldr) {
+	return ldr.measureNumber > NUMBER_OF_LDR_MEASURE;
 }
 
-bool areNewMeassures() {
-	return ldrMeasureNumber >= NUMBER_OF_LDR_MEASURE;
+bool areNewMeassures(LDR ldr) {
+	return ldr.measureNumber >= NUMBER_OF_LDR_MEASURE;
 }
 
-uint16_t getAverageMeassure() {
-	averageMeasureFromLdr = 0;
-	for (int i = 0; i < NUMBER_OF_LDR_MEASURE; i++) {
-		averageMeasureFromLdr += messureFromLdr[i];
-	}
+uint16_t getAverageMeassure(LDR ldr) {
+	ldr.averageMeasure = 0;
+	for (int i = 0; i < NUMBER_OF_LDR_MEASURE; i++)
+		ldr.averageMeasure += ldr.messures[i];
 
-	return (averageMeasureFromLdr/NUMBER_OF_LDR_MEASURE);
+	return (ldr.averageMeasure/NUMBER_OF_LDR_MEASURE);
 }
 
-uint16_t convertPercentToLDRvalue(uint16_t percent) {
-	uint16_t range = maxLDRreading - minLDRreading;
-	return (minLDRreading + (range * percent / 100));
+uint16_t convertPercentToValue(LDR ldr, uint16_t percent) {
+	uint16_t range = ldr.maxReading - ldr.minReading;
+	return (ldr.minReading + (range * percent / 100));
 }
 
-uint16_t convertLDRvalueToPercent(uint16_t ldrValue) {
-	return ((ldrValue / maxLDRreading)*100);
+uint16_t convertLDRvalueToPercent(LDR ldr, uint16_t ldrValue) {
+	return ((ldrValue / ldr.maxReading)*100);
 }
 
-bool isAboveUpperLimit() {
-	return getAverageMeassure() > upperLDRControlLimit;
+bool isAboveUpperLimit(LDR ldr) {
+	return getAverageMeassure(ldr) > ldr.upperControlLimit;
 }
 
-bool isBelowLowerLimit() {
-	return getAverageMeassure() < lowerLDRControlLimit;
+bool isBelowLowerLimit(LDR ldr) {
+	return getAverageMeassure(ldr) < ldr.lowerControlLimit;
 }
 
-void setMinLDRreading(uint16_t minLDRreading_) {
-	minLDRreading = minLDRreading_;
+void setMinReading(LDR ldr, uint16_t minReading_) {
+	ldr.minReading = minReading_;
 }
 
-void setMaxLDRreading(uint16_t maxLDRreading_) {
-	maxLDRreading = maxLDRreading_;
+void setMaxReading(LDR ldr, uint16_t maxReading_) {
+	ldr.maxReading = maxReading_;
 }
 
-void setUpperLDRControlLimit(uint16_t upperLDRContolLimit_) {
-	upperLDRControlLimit = upperLDRContolLimit_;
+void setUpperControlLimit(LDR ldr, uint16_t upperContolLimit_) {
+	ldr.upperControlLimit = upperContolLimit_;
 }
 
-void setLowerLDRControlLimit(uint16_t lowerLDRControlLimit_) {
-	lowerLDRControlLimit = lowerLDRControlLimit_;
+void setLowerControlLimit(LDR ldr, uint16_t lowerControlLimit_) {
+	ldr.lowerControlLimit = lowerControlLimit_;
 }
 
-uint16_t getMinLDRreading() {
-	return minLDRreading;
+uint16_t getMinReading(LDR ldr) {
+	return ldr.minReading;
 }
 
-uint16_t getMaxLDRreading() {
-	return maxLDRreading;
+uint16_t getMaxReading(LDR ldr) {
+	return ldr.maxReading;
 }
 
-uint16_t getUpperLDRControlLimit() {
-	return upperLDRControlLimit;
+uint16_t getUpperControlLimit(LDR ldr) {
+	return ldr.upperControlLimit;
 }
 
-uint16_t getLowerLDRControlLimit() {
-	return lowerLDRControlLimit;
+uint16_t getLowerControlLimit(LDR ldr) {
+	return ldr.lowerControlLimit;
 }
 

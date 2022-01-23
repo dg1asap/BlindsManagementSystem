@@ -1,0 +1,38 @@
+#ifndef INC_LDR_H_
+#define INC_LDR_H_
+
+#define NUMBER_OF_LDR_MEASURE 5
+
+#include <stdbool.h>
+
+#include "main.h"
+#include "adc.h"
+
+typedef struct _LDR LDR;
+
+
+uint16_t messureFromLdr[NUMBER_OF_LDR_MEASURE];
+uint16_t averageMeasureFromLdr;
+uint8_t ldrMeasureNumber;
+
+
+uint16_t getLightIntensity(_LDR LDR);
+void measure(_LDR LDR);
+bool measureIsAutoOfRange(_LDR LDR);
+bool areNewMeassures(_LDR LDR);
+uint16_t getAverageMeassure(_LDR LDR);
+uint16_t convertPercentToValue(_LDR LDR, uint16_t percent);
+uint16_t convertLDRvalueToPercent(_LDR LDR, uint16_t ldrValue);
+bool isAboveUpperLimit(_LDR LDR);
+bool isBelowLowerLimit(_LDR LDR);
+void setMinReading(_LDR LDR, uint16_t minLDRreading_);
+void setMaxReading(_LDR LDR, uint16_t maxLDRreading_);
+void setUpperControlLimit(_LDR LDR, uint16_t upperLDRContolLimit_);
+void setLowerControlLimit(_LDR LDR, uint16_t lowerLDRControlLimit_);
+uint16_t getMinReading(_LDR LDR);
+uint16_t getMaxReading(_LDR LDR);
+uint16_t getUpperControlLimit(_LDR LDR);
+uint16_t getLowerControlLimit(_LDR LDR);
+
+
+#endif /* INC_LDR_H_ */

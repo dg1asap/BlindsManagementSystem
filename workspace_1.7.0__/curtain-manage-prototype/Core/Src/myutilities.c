@@ -1,6 +1,6 @@
 #include "myutilities.h"
 
-uint8_t string_compare(char array1[], char array2[], uint16_t length) {
+uint8_t stringCompare(char array1[], char array2[], uint16_t length) {
 	uint8_t comVAR = 0, i;
 	for (i=0; i<length; i++)
 	{

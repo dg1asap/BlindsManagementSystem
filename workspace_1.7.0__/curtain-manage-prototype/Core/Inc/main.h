@@ -35,6 +35,7 @@ extern "C" {
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+
 #include "LDR.h"
 #include "Servo.h"
 #include "bluetooth.h"
@@ -66,6 +67,7 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 void setBlindWithLDR();
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

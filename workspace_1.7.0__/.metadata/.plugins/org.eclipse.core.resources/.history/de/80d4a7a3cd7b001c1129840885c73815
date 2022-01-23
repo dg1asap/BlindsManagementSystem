@@ -1,0 +1,89 @@
+#include "Servo.h"
+
+Servo servo = {3, 3, 3};
+
+void steer(Servo servo) {
+	if (canRollDown(servo)) {
+		rollDown(servo);
+	} else if (canRollUp(servo)) {
+		rollUp(servo);
+	} else if (canStopRolling(servo)) {
+		stopRolling(servo);
+	}
+}
+
+void increasePositionByLength(Servo servo, uint16_t length) {
+	uint16_t newBlindPosition_ = length + newBlindPosition;
+	if (canSetBlindPosition(newBlindPosition_)) {
+		setBlindPosition(newBlindPosition_);
+	}
+}
+
+bool canSetPosition(Servo servo, uint16_t newBlindPosition_) {
+	return !isLongerThanBlind(newBlindPosition_) && isPositiveLength(newBlindPosition_);
+}
+
+void setPosition(Servo servo, uint16_t newBlindPosition_) {
+	if (canSetBlindPosition(newBlindPosition_)) {
+		servo.newBlindPosition = newBlindPosition_;
+	}
+}
+
+void setPositionToMax(Servo servo) {
+	servo.newBlindPosition = servo.blind_height;
+}
+
+void setPositionToMin(Servo servo) {
+	servo.newBlindPosition = 0;
+}
+
+bool canRollUp(Servo servo) {
+	return isBelowNewBlindPosition(servo) && isRolledMaxUp(servo);
+}
+
+bool canRollDown(Servo servo) {
+	return isAboveNewBlindPosition(servo) && isRolledMaxDown(servo);
+}
+
+bool canStopRolling(Servo servo) {
+	return servo.current_blind_positon == servo.newBlindPosition;
+}
+
+bool isRolledMaxUp(Servo servo) {
+	return servo.current_blind_positon < servo.blind_height;
+}
+
+bool isRolledMaxDown(Servo servo) {
+	return servo.current_blind_positon > 0;
+}
+
+bool isBelowNewPosition(Servo servo) {
+	return servo.current_blind_positon < servo.newBlindPosition;
+}
+
+bool isAboveNewPosition(Servo servo) {
+	return servo.current_blind_positon > servo.newBlindPosition;
+}
+
+bool isLongerThan(Servo servo, uint16_t blindLength) {
+	return blindLength > servo.blind_height;
+}
+
+bool isPositiveLength(Servo servo, uint16_t blindLength) {
+	return blindLength >= 0;
+}
+
+void rollDown(Servo servo) {
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1394);
+	servo.current_blind_positon--;
+}
+
+void rollUp(Servo servo) {
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1568);
+	servo.current_blind_positon++;
+}
+
+void stopRolling(Servo servo) {
+//	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1474);
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1460);
+}
