@@ -57,8 +57,9 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-Servo servo = {3, 3, 3};
-LDR ldr = {{0}, 0, 1, 1, 3000, 2000, 500};
+//LDR_Init(LDR* ldr);
+//Servo servo = {3, 3, 3};
+//LDR ldr = {{0}, 0, 1, 1, 3000, 2000, 500};
 /* USER CODE END 0 */
 
 /**
@@ -167,19 +168,19 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim->Instance == TIM2)
-		steer(servo);
+		steer(&servo);
 	else if (htim->Instance == TIM6) {
-		if (areNewMeassures(ldr))
+		if (areNewMeassures(&ldr))
 			setBlindWithLDR();
-		measure(ldr);
+		measure(&ldr);
 	}
 }
 
 void setBlindWithLDR() {
-	if (isAboveUpperLimit(ldr))
-		setPositionToMax(servo);
-	else if (isBelowLowerLimit(ldr))
-		setPositionToMin(servo);
+	if (isAboveUpperLimit(&ldr))
+		setPositionToMax(&servo);
+	else if (isBelowLowerLimit(&ldr))
+		setPositionToMin(&servo);
 }
 
 /* USER CODE END 4 */

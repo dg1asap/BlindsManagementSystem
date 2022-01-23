@@ -6,7 +6,7 @@
 
 #define NUMBER_OF_LDR_MEASURE 5
 
-typedef struct {
+typedef struct LDR {
 	uint16_t messures[NUMBER_OF_LDR_MEASURE];
 	uint16_t averageMeasure;
 	uint8_t measureNumber;
@@ -16,23 +16,26 @@ typedef struct {
 	uint16_t lowerControlLimit;
 } LDR;
 
-uint16_t getLightIntensity(LDR ldr);
-void measure(LDR ldr);
-bool measureIsAutoOfRange(LDR ldr);
-bool areNewMeassures(LDR ldr);
-uint16_t getAverageMeassure(LDR ldr);
-uint16_t convertPercentToValue(LDR ldr, uint16_t percent);
-uint16_t convertLDRvalueToPercent(LDR ldr, uint16_t ldrValue);
-bool isAboveUpperLimit(LDR ldr);
-bool isBelowLowerLimit(LDR ldr);
-void setMinReading(LDR ldr, uint16_t minReading_);
-void setMaxReading(LDR ldr, uint16_t maxReading_);
-void setUpperControlLimit(LDR ldr, uint16_t upperContolLimit_);
-void setLowerControlLimit(LDR ldr, uint16_t lowerControlLimit_);
-uint16_t getMinReading(LDR ldr);
-uint16_t getMaxReading(LDR ldr);
-uint16_t getUpperControlLimit(LDR ldr);
-uint16_t getLowerControlLimit(LDR ldr);
+extern LDR ldr;
+//void LDR_Init(LDR* ldr);
+
+uint16_t getLightIntensity(LDR* ldr);
+void measure(LDR* ldr);
+bool measureIsAutoOfRange(LDR* ldr);
+bool areNewMeassures(LDR* ldr);
+uint16_t getAverageMeassure(LDR* ldr);
+uint16_t convertPercentToValue(LDR* ldr, uint16_t percent);
+uint16_t convertLDRvalueToPercent(LDR* ldr, uint16_t ldrValue);
+bool isAboveUpperLimit(LDR* ldr);
+bool isBelowLowerLimit(LDR* ldr);
+void setMinReading(LDR* ldr, uint16_t minReading_);
+void setMaxReading(LDR* ldr, uint16_t maxReading_);
+void setUpperControlLimit(LDR* ldr, uint16_t upperContolLimit_);
+void setLowerControlLimit(LDR* ldr, uint16_t lowerControlLimit_);
+uint16_t getMinReading(LDR* ldr);
+uint16_t getMaxReading(LDR* ldr);
+uint16_t getUpperControlLimit(LDR* ldr);
+uint16_t getLowerControlLimit(LDR* ldr);
 
 
 #endif /* INC_LDR_H_ */
