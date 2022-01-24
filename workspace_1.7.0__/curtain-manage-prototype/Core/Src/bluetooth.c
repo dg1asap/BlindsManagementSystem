@@ -9,7 +9,7 @@ void msgHandler(void) {
 	if (stringCompare(buffer, "SERWO MAX UP", strlen("SERWO MAX UP"))) {
 		setPositionToMax(&servo);
 		HAL_UART_Transmit(&huart1, (uint8_t*)"Servo going up to min.\n", strlen("Servo going up to min.\n"), 500);
-	} else if (stringCompare(buffer, "SERWO MIN DOWN", strlen("SERWO MIN DOWN"))) {
+	} else if (stringCompare(buffer, "SERWO MAX DOWN", strlen("SERWO MAX DOWN"))) {
 		setPositionToMin(&servo);
 		HAL_UART_Transmit(&huart1, (uint8_t*)"Servo going down to max.\n", strlen("Servo going down to max.\n"), 500);
 	} else if (stringCompare(buffer, "SERWO UP", strlen("SERWO UP"))) {
@@ -18,16 +18,16 @@ void msgHandler(void) {
 	} else if (stringCompare(buffer, "SERWO DOWN", strlen("SERWO DOWN"))) {
 		increasePositionBy(&servo, -1);
 		HAL_UART_Transmit(&huart1, (uint8_t*)"Servo going down by 1.\n", strlen("Servo going down by 1.\n"), 500);
-	} else if (strncmp(buffer, "SET MIN LDR READING xxx", strlen("SET MIN LDR READING")) == 0) {
+	} else if (strncmp(buffer, "SET MIN LDR READING xxxx", strlen("SET MIN LDR READING")) == 0) {
 		uint16_t ldrValue = getLastWordAsInt(buffer);
 		setMinReading(&ldr, ldrValue);
-	} else if (strncmp(buffer, "SET MAX LDR READING xxx", strlen("SET MAX LDR READING")) == 0) {
+	} else if (strncmp(buffer, "SET MAX LDR READING xxxx", strlen("SET MAX LDR READING")) == 0) {
 		uint16_t ldrValue = getLastWordAsInt(buffer);
 		setMaxReading(&ldr, ldrValue);
-	} else if (strncmp(buffer, "SET UPPER LDR CONTROL LIMIT xxx", strlen("SET UPPER LDR CONTROL LIMIT")) == 0) {
+	} else if (strncmp(buffer, "SET UPPER LDR CONTROL LIMIT xxxx", strlen("SET UPPER LDR CONTROL LIMIT")) == 0) {
 		uint16_t ldrValue = getLastWordAsInt(buffer);
 		setUpperControlLimit(&ldr, ldrValue);
-	} else if (strncmp(buffer, "SET LOWER LDR CONTROL LIMIT xxx", strlen("SET LOWER LDR CONTROL LIMIT")) == 0) {
+	} else if (strncmp(buffer, "SET LOWER LDR CONTROL LIMIT xxxx", strlen("SET LOWER LDR CONTROL LIMIT")) == 0) {
 		uint16_t ldrValue = getLastWordAsInt(buffer);
 		setLowerControlLimit(&ldr, ldrValue);
 	} else if (stringCompare(buffer, "PRINT MIN LDR READING", strlen("PRINT MIN LDR READING"))) {

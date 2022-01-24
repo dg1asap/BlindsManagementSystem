@@ -18,7 +18,7 @@ void increasePositionBy(Servo* servo, uint16_t length) {
 }
 
 bool canSetPosition(Servo* servo, uint16_t newPosition_) {
-	return !isLongerThan(servo, newPosition_) && isPositiveLength(servo, newPosition_);
+	return !isShorterThan(servo, newPosition_) && isPositiveLength(servo, newPosition_);
 }
 
 void setPosition(Servo* servo, uint16_t newPosition_) {
@@ -35,11 +35,11 @@ void setPositionToMin(Servo* servo) {
 }
 
 bool canRollUp(Servo* servo) {
-	return isBelowNewPosition(servo) && isRolledMaxUp(servo);
+	return isBelowNewPosition(servo) && (!isRolledMaxUp(servo));
 }
 
 bool canRollDown(Servo* servo) {
-	return isAboveNewPosition(servo) && isRolledMaxDown(servo);
+	return isAboveNewPosition(servo) && (!isRolledMaxDown(servo));
 }
 
 bool canStopRolling(Servo* servo) {
@@ -47,11 +47,11 @@ bool canStopRolling(Servo* servo) {
 }
 
 bool isRolledMaxUp(Servo* servo) {
-	return servo->currentPositon < servo->maxPosition;
+	return !(servo->currentPositon < servo->maxPosition);
 }
 
 bool isRolledMaxDown(Servo* servo) {
-	return servo->currentPositon > 0;
+	return !(servo->currentPositon > 0);
 }
 
 bool isBelowNewPosition(Servo* servo) {
@@ -62,7 +62,7 @@ bool isAboveNewPosition(Servo* servo) {
 	return servo->currentPositon > servo->newPosition;
 }
 
-bool isLongerThan(Servo* servo, uint16_t blindLength) {
+bool isShorterThan(Servo* servo, uint16_t blindLength) {
 	return blindLength > servo->maxPosition;
 }
 

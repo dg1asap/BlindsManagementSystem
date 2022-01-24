@@ -4,18 +4,41 @@
 #include "main.h"
 #include "adc.h"
 
+/**
+ * @brief Liczba pomiarów, po których liczona jest średnia.
+**/
 #define NUMBER_OF_LDR_MEASURE 5
 
+/**
+ * @brief Struktura przechowująca kluczowe zmienne związane z fotorezystorem.
+**/
 typedef struct LDR {
+    /** Tablica przechowująca kilka ostatnich pomiarów. **/
 	uint16_t messures[NUMBER_OF_LDR_MEASURE];
+
+    /** Zmienna przechowująca średnią kilku ostatnih pomiarów. **/
 	uint16_t averageMeasure;
+
+    /** Zmienna przechowująca pozycję aktualnie dokonywanego pomiaru w tablicy. **/
 	uint8_t measureNumber;
+
+    /** Zmienna oznaczająca minimalne fabryczne natężenie światła, zależne od modelu fotorezystora. **/
 	uint16_t minReading;
+
+    /** Zmienna oznaczająca maksymalne fabryczne natężenie światła, zależne od modelu fotorezystora. **/
 	uint16_t maxReading;
+    
+    /** Aktualne natężenie światła, po przekroczeniu którego roleta się podnosi. **/
 	uint16_t upperControlLimit;
+
+    /** Aktualne natężenie światła, po przekroczeniu którego roleta się opuszcza. **/
 	uint16_t lowerControlLimit;
 } LDR;
 
+
+/**
+ * @brief Instancja struktury LDR, z przypisanymi parametrami początkowymi.
+**/
 extern LDR ldr;
 //void LDR_Init(LDR* ldr);
 
@@ -128,7 +151,7 @@ void setLowerControlLimit(LDR* ldr, uint16_t lowerControlLimit_);
  * @brief Funkcja zwracająca fabryczne natężenie światła, po przekroczeniu którego roleta się opuszcza.
  * Fabryczne natężenie światła może się różnić w zależności od fotorezystora. Zostanie ono wyświetlone w aplikacji.
  * @param ldr Instancja struktury LDR.
- * @return 
+ * @return fabryczne natężenie światła, po przekroczeniu którego roleta się opuszcza.
 **/
 uint16_t getMinReading(LDR* ldr);
 
@@ -136,7 +159,7 @@ uint16_t getMinReading(LDR* ldr);
  * @brief Funkcja zwracająca fabryczne natężenie światła, po przekroczeniu którego roleta się podnosi.
  * Fabryczne natężenie światła może się różnić w zależności od fotorezystora. Zostanie ono wyświetlone w aplikacji.
  * @param ldr Instancja struktury LDR.
- * @return 
+ * @return Fabryczne natężenie światła, po przekroczeniu którego roleta się podnosi.
 **/
 uint16_t getMaxReading(LDR* ldr);
 

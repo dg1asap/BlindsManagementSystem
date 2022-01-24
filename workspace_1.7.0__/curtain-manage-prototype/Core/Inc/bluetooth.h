@@ -7,10 +7,35 @@
 #include "tim.h"
 #include "myutilities.h"
 
+/** Ciąg znaków wysyłany do modułu bluetooth **/
 extern char buffer[50];
-extern uint8_t timer_count, buffer_index;
+
+/** Indeks aktualnie przesyłanego znaku **/
+extern uint8_t buffer_index;
+
+/** Licznik czasu odczytu z bufora u celu optymalnego przesyłu danych. **/
+extern uint8_t timer_count;
+
+/** Informacja **/
+extern char info[50];
 extern UART_HandleTypeDef huart1;
 
+/**
+ * @brief Funkcja obsługująca komendy wysłane do modułu bluetooth. Gdzie dla komendy:
+ * SERWO MAX UP - następuje ustawienie rolety w najwyższym punkcie.
+ * SERWO MAX DOWN - następuje ustawienie rolety w najniższym punkcie.
+ * SERWO UP - zwiększenie pozycji rolety o 1.
+ * SERWO DOWN - zmniejszenie pozycji rolety o 1.
+ * SET MIN LDR READING xxxx - ustawia fabryczne natężenie światła, po przekroczeniu którego roleta się opuszcza.
+ * SET MAX LDR READING xxxx - ustawia fabryczne natężenie światła, po przekroczeniu którego roleta się podnosi.
+ * SET UPPER LDR CONTROL LIMIT xxxx - ustawia górną wartość odczytu z fotorezystora, dla którego następuje wysterowanie.
+ * SET LOWER LDR CONTROL LIMIT xxxx - ustawia dolną wartość odczytu z fotorezystora, dla którego następuje wysterowanie.
+ * PRINT MIN LDR READING - zwraca fabryczne natężenie światła, po przekroczeniu którego roleta się opuszcza.
+ * PRINT MAX LDR READING - zwraca fabryczne natężenie światła, po przekroczeniu którego roleta się podnosi.
+ * PRINT UPPER LDR CONTROL LIMIT - zwraca górną wartość odczytu z fotorezystora, dla którego następuje wysterowanie.
+ * PRINT LOWER LDR CONTROL LIMIT - zwraca dolną wartość odczytu z fotorezystora, dla którego następuje wysterowanie.
+ * Dla pozostałych przypadków zwraca echo.
+**/
 void msgHandler();
 
 #endif /* INC_MYLIBRARY_H_ */
