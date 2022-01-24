@@ -63,7 +63,18 @@ void setPositionToMax(Servo* servo);
 **/
 void setPositionToMin(Servo* servo);
 
+/**
+ * @brief Funkcja ustawiająca długość rolety.
+ * @param servo Instancja struktury Servo.
+ * @param maxPosition_ Nowa długość rolety.
+**/
 void setMaxPositon(Servo* servo, uint16_t maxPosition_);
+
+/**
+ * @brief Funkcja zwracająca długość rolety.
+ * @param servo Instancja struktury Servo.
+ * @return Długość rolety.
+**/
 uint16_t getMaxPositon(Servo* servo);
 
 /**

@@ -36,6 +36,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -57,14 +58,14 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//LDR_Init(LDR* ldr);
-//Servo servo = {3, 3, 3};
-//LDR ldr = {{0}, 0, 1, 1, 3000, 2000, 500};
+
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
-  * @retval int
+  * @brief System pracuje w dwóch trybach – naświetlenia i manualnym.
+  * W trybie naświetlenia co pewien okres nastąpi pomiar natężenia światła. Co 5 pomiarów nastąpi wyciągnięcie średniej z pięciu ostatnich pomiarów i porównanie jej natężeniami granicznymi. W zależności od wyniku porównania serwomechanizm wysteruje roletę. Gdy natężenie będzie większe od górnego natężenia granicznego, roleta zostanie podniesiona. Gdy natężenie będzie mniejsze od dolnego natężenia granicznego, roleta zostanie opuszczona. W trybie manualnym użytkownik, przy pomocy aplikacji rozwija albo zwija zasłonę według własnego uznania.
+  * Autorzy: Damian Górski, Daniel Mierzejewski.
+  * @return int
   */
 int main(void)
 {
