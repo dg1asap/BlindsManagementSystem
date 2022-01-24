@@ -180,8 +180,8 @@ void TIM6_DAC_IRQHandler(void)
 void TIM7_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM7_IRQn 0 */
-	if (strlen(buffer) > 0) timer_count++;
-	if (timer_count > 5) msgHandler();
+	if (strlen(bluetooth.buffer) > 0) bluetooth.timer_count++;
+	if (bluetooth.timer_count > 5) msgHandler(&bluetooth);
   /* USER CODE END TIM7_IRQn 0 */
   HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM7_IRQn 1 */
@@ -195,9 +195,9 @@ void TIM7_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-	HAL_UART_Receive(&huart1, (uint8_t*)&buffer[buffer_index++], 1, 10);
+	HAL_UART_Receive(&huart1, (uint8_t*)&bluetooth.buffer[bluetooth.buffer_index++], 1, 10);
 
-	if (buffer[buffer_index-1] == '\n') msgHandler();
+	if (bluetooth.buffer[bluetooth.buffer_index-1] == '\n') msgHandler(&bluetooth);
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */

@@ -99,7 +99,7 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_Delay(1200);
-  memset(buffer, 0, sizeof(buffer));
+  memset(bluetooth.buffer, 0, sizeof(bluetooth.buffer));
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim6);

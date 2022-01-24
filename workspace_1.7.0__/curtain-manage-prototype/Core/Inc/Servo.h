@@ -63,6 +63,9 @@ void setPositionToMax(Servo* servo);
 **/
 void setPositionToMin(Servo* servo);
 
+void setMaxPositon(Servo* servo, uint16_t maxPosition_);
+uint16_t getMaxPositon(Servo* servo);
+
 /**
  * @brief Funkcja sprawdzająca, czy można podwyższyć roletę.
  * Jeśli tak, serwomechanizm zaczyna się kręcić i podwyższa roletę.

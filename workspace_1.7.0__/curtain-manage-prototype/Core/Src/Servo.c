@@ -34,6 +34,14 @@ void setPositionToMin(Servo* servo) {
 	servo->newPosition = 0;
 }
 
+void setMaxPositon(Servo* servo, uint16_t maxPosition_) {
+	servo->maxPosition = maxPosition_;
+}
+
+uint16_t getMaxPositon(Servo* servo) {
+	return servo->maxPosition;
+}
+
 bool canRollUp(Servo* servo) {
 	return isBelowNewPosition(servo) && (!isRolledMaxUp(servo));
 }

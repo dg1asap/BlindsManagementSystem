@@ -7,18 +7,20 @@
 #include "tim.h"
 #include "myutilities.h"
 
-/** Ciąg znaków wysyłany do modułu bluetooth **/
-extern char buffer[50];
-
-/** Indeks aktualnie przesyłanego znaku **/
-extern uint8_t buffer_index;
-
-/** Licznik czasu odczytu z bufora u celu optymalnego przesyłu danych. **/
-extern uint8_t timer_count;
-
-/** Informacja **/
-extern char info[50];
 extern UART_HandleTypeDef huart1;
+
+typedef struct Bluetooth {
+	/** Ciąg znaków wysyłany do modułu bluetooth **/
+	char buffer[50];
+
+	/** Indeks aktualnie przesyłanego znaku **/
+	uint8_t buffer_index;
+
+	/** Licznik czasu odczytu z bufora u celu optymalnego przesyłu danych. **/
+	uint8_t timer_count;
+} Bluetooth;
+
+extern Bluetooth bluetooth;
 
 /**
  * @brief Funkcja obsługująca komendy wysłane do modułu bluetooth. Gdzie dla komendy:
@@ -36,6 +38,26 @@ extern UART_HandleTypeDef huart1;
  * PRINT LOWER LDR CONTROL LIMIT - zwraca dolną wartość odczytu z fotorezystora, dla którego następuje wysterowanie.
  * Dla pozostałych przypadków zwraca echo.
 **/
-void msgHandler();
+void msgHandler(Bluetooth* bluetooth);
+void handleSerwoMaxUp(Bluetooth* bluetooth);
+void handleSerwoMaxDown(Bluetooth* bluetooth);
+void handleSerwoUp(Bluetooth* bluetooth);
+void handleSerwoDown(Bluetooth* bluetooth);
+void handleSetMinLDRreading(Bluetooth* bluetooth);
+void handleSetMaxLDRreading(Bluetooth* bluetooth);
+void handleSetUpperLDRcontrolLimit(Bluetooth* bluetooth);
+void handleSetLowerLDRcontrolLimit(Bluetooth* bluetooth);
+void handlePrintMinLDRreading(Bluetooth* bluetooth);
+void handlePrintMaxLDRreading(Bluetooth* bluetooth);
+void handlePrintUpperLDRcontrolLimit(Bluetooth* bluetooth);
+void handlePrintLowerLDRcontrolLimit(Bluetooth* bluetooth);
+void handleSetServoMaxPosition(Bluetooth* bluetooth);
+void handlePrintServoMaxPosition(Bluetooth* bluetooth);
+void handleIncorrectCommand(Bluetooth* bluetooth);
+void printMinLDRreading(Bluetooth* bluetooth, uint16_t ldrValue);
+void printMaxReading(Bluetooth* bluetooth, uint16_t ldrValue);
+void printUpperControlLimit(Bluetooth* bluetooth, uint16_t ldrValue);
+void printLowerControlLimit(Bluetooth* bluetooth, uint16_t ldrValue);
+void printServoMaxPosition(Bluetooth* bluetooth, uint16_t maxPostion);
 
 #endif /* INC_MYLIBRARY_H_ */
