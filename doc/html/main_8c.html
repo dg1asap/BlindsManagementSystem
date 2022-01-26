@@ -106,7 +106,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a70af21c671abfcc773614a9a4f63d920"><td class="mdescLeft">&#160;</td><td class="mdescRight">System Clock Configuration.  <a href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">More...</a><br /></td></tr>
 <tr class="separator:a70af21c671abfcc773614a9a4f63d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
-<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">System pracuje w dwóch trybach – naświetlenia i manualnym.  <a href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
+<tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">System zarządzający roletą okienną.  <a href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">More...</a><br /></td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8a3b0ad512a6e6c6157440b68d395eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___t_i_m___exported___functions___group9.html#ga8a3b0ad512a6e6c6157440b68d395eac">HAL_TIM_PeriodElapsedCallback</a> (<a class="el" href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a> *htim)</td></tr>
 <tr class="separator:ga8a3b0ad512a6e6c6157440b68d395eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,8 +165,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>System pracuje w dwóch trybach – naświetlenia i manualnym. </p>
-<p >W trybie naświetlenia co pewien okres nastąpi pomiar natężenia światła. Co 5 pomiarów nastąpi wyciągnięcie średniej z pięciu ostatnich pomiarów i porównanie jej natężeniami granicznymi. W zależności od wyniku porównania serwomechanizm wysteruje roletę. Gdy natężenie będzie większe od górnego natężenia granicznego, roleta zostanie podniesiona. Gdy natężenie będzie mniejsze od dolnego natężenia granicznego, roleta zostanie opuszczona. W trybie manualnym użytkownik, przy pomocy aplikacji rozwija albo zwija zasłonę według własnego uznania. Autorzy: Damian Górski, Daniel Mierzejewski. </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<p>System zarządzający roletą okienną. </p>
+<p >System pracuje w dwóch trybach – naświetlenia i manualnym. W trybie naświetlenia co pewien okres nastąpi pomiar natężenia światła. Co 5 pomiarów nastąpi wyciągnięcie średniej z pięciu ostatnich pomiarów i porównanie jej natężeniami granicznymi. W zależności od wyniku porównania serwomechanizm wysteruje roletę. Gdy natężenie będzie większe od górnego natężenia granicznego, roleta zostanie podniesiona. Gdy natężenie będzie mniejsze od dolnego natężenia granicznego, roleta zostanie opuszczona. W trybie manualnym użytkownik, przy pomocy aplikacji rozwija albo zwija zasłonę według własnego uznania. Autorzy: Damian Górski, Daniel Mierzejewski. </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
 </div>
 </div>

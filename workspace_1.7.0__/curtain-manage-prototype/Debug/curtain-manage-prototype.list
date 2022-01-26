@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  00018b36  00000000  00000000  00044ea0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0001678a  00000000  00000000  0005d9d6  2**0
+ 17 .debug_line   00015d0a  00000000  00000000  0005d9d6  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00089dcd  00000000  00000000  00074160  2**0
+ 18 .debug_str    00089dcf  00000000  00000000  000736e0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000fdf2d  2**0
+ 19 .comment      00000053  00000000  00000000  000fd4af  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003d64  00000000  00000000  000fdf80  2**2
+ 20 .debug_frame  00003d64  00000000  00000000  000fd504  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2831,9 +2831,9 @@ void MX_GPIO_Init(void)
  8001398:	40021000 	.word	0x40021000
 
 0800139c <main>:
-/**
-  * @brief  The application entry point.
-  * @retval int
+  * aplikacji rozwija albo zwija zasłonę według własnego uznania.
+  * Autorzy: Damian Górski, Daniel Mierzejewski.
+  * @return int
   */
 int main(void)
 {

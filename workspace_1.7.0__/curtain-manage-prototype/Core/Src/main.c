@@ -62,8 +62,16 @@ void SystemClock_Config(void);
 /* USER CODE END 0 */
 
 /**
-  * @brief System pracuje w dwóch trybach – naświetlenia i manualnym.
-  * W trybie naświetlenia co pewien okres nastąpi pomiar natężenia światła. Co 5 pomiarów nastąpi wyciągnięcie średniej z pięciu ostatnich pomiarów i porównanie jej natężeniami granicznymi. W zależności od wyniku porównania serwomechanizm wysteruje roletę. Gdy natężenie będzie większe od górnego natężenia granicznego, roleta zostanie podniesiona. Gdy natężenie będzie mniejsze od dolnego natężenia granicznego, roleta zostanie opuszczona. W trybie manualnym użytkownik, przy pomocy aplikacji rozwija albo zwija zasłonę według własnego uznania.
+  * @brief System zarządzający roletą okienną.
+  * System pracuje w dwóch trybach – naświetlenia i manualnym.
+  * W trybie naświetlenia co pewien okres nastąpi pomiar natężenia światła.
+  * Co 5 pomiarów nastąpi wyciągnięcie średniej z pięciu ostatnich pomiarów
+  * i porównanie jej natężeniami granicznymi. W zależności od wyniku
+  * porównania serwomechanizm wysteruje roletę. Gdy natężenie będzie
+  * większe od górnego natężenia granicznego, roleta zostanie podniesiona.
+  * Gdy natężenie będzie mniejsze od dolnego natężenia granicznego, roleta
+  * zostanie opuszczona. W trybie manualnym użytkownik, przy pomocy
+  * aplikacji rozwija albo zwija zasłonę według własnego uznania.
   * Autorzy: Damian Górski, Daniel Mierzejewski.
   * @return int
   */
