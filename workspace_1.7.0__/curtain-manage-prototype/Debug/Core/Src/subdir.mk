@@ -7,6 +7,7 @@
 C_SRCS += \
 ../Core/Src/LDR.c \
 ../Core/Src/Servo.c \
+../Core/Src/ServoScheduler.c \
 ../Core/Src/adc.c \
 ../Core/Src/bluetooth.c \
 ../Core/Src/gpio.c \
@@ -23,6 +24,7 @@ C_SRCS += \
 OBJS += \
 ./Core/Src/LDR.o \
 ./Core/Src/Servo.o \
+./Core/Src/ServoScheduler.o \
 ./Core/Src/adc.o \
 ./Core/Src/bluetooth.o \
 ./Core/Src/gpio.o \
@@ -39,6 +41,7 @@ OBJS += \
 C_DEPS += \
 ./Core/Src/LDR.d \
 ./Core/Src/Servo.d \
+./Core/Src/ServoScheduler.d \
 ./Core/Src/adc.d \
 ./Core/Src/bluetooth.d \
 ./Core/Src/gpio.d \
@@ -55,5 +58,5 @@ C_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 Core/Src/%.o: ../Core/Src/%.c Core/Src/subdir.mk
-	arm-none-eabi-gcc "$<" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L073xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L073xx -c -I"/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc" -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
 

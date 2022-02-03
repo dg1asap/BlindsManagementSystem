@@ -1,0 +1,15 @@
+ServoScheduler.c:5:6:isServoUpOn	16	static
+ServoScheduler.c:9:6:isServoDownOn	16	static
+ServoScheduler.c:13:6:turnOnServoUp	16	static
+ServoScheduler.c:17:6:turnOnServoDown	16	static
+ServoScheduler.c:21:6:turnOffServoUp	16	static
+ServoScheduler.c:25:6:turnOffServoDown	16	static
+ServoScheduler.c:29:6:count	16	static
+ServoScheduler.c:35:6:isTimerOutOfScope	16	static
+ServoScheduler.c:39:6:resetTimer	16	static
+ServoScheduler.c:43:10:canSteerServoUp	16	static
+ServoScheduler.c:49:10:canSteerServoDown	16	static
+ServoScheduler.c:55:6:isServoUpTime	16	static
+ServoScheduler.c:59:6:isServoDownTime	16	static
+ServoScheduler.c:63:6:setServoUpTime	16	static
+ServoScheduler.c:69:6:setServoDownTime	16	static

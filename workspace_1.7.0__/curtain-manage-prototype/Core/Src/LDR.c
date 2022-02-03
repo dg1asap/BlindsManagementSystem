@@ -1,6 +1,6 @@
 #include "LDR.h"
 
-LDR ldr = {{0}, 0, 1, 1, 3000, 2000, 500};
+LDR ldr = {{0}, 0, 1, 1, 3000, 2000, 500, false};
 
 //void LDR_Init(LDR* ldr)
 //{
@@ -97,3 +97,14 @@ uint16_t getLowerControlLimit(LDR* ldr) {
 	return ldr->lowerControlLimit;
 }
 
+bool isTurnOn(LDR* ldr) {
+	return ldr->turnOn;
+}
+
+void turn0n(LDR* ldr) {
+	ldr->turnOn = true;
+}
+
+void turnOff(LDR* ldr) {
+	ldr->turnOn = false;
+}

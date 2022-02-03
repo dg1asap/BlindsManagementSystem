@@ -90,5 +90,5 @@ void rollUp(Servo* servo) {
 
 void stopRolling() {
 //	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1474);
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1460);
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1454);
 }

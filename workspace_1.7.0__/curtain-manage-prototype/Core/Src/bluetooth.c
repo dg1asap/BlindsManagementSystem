@@ -31,6 +31,22 @@ void msgHandler(Bluetooth* bluetooth) {
 		handlePrintLowerLDRcontrolLimit(bluetooth);
 	else if (strncmp(bluetooth->buffer, "PRINT SERVO MAX POSITION", strlen("PRINT SERVO MAX POSITON")) == 0)
 		handlePrintServoMaxPosition(bluetooth);
+	else if (strncmp(bluetooth->buffer, "TIMER UP xxxx", strlen("TIMER UP")) == 0)
+		handleTimerUp(bluetooth);
+	else if (strncmp(bluetooth->buffer, "TIMER DOWN xxxx", strlen("TIMER DOWN")) == 0)
+		handleTimerDown(bluetooth);
+	else if (strncmp(bluetooth->buffer, "LDR TURN ON", strlen("LDR TURN ON")) == 0)
+		handleTurnOnLDR(bluetooth);
+	else if (strncmp(bluetooth->buffer, "LDR TURN OFF", strlen("LDR TURN OFF")) == 0)
+		handleTurnOffLDR(bluetooth);
+	else if (strncmp(bluetooth->buffer, "SCHEDULER UP ON", strlen("SCHEDULER UP ON")) == 0)
+		handleSchedulerUpTurnOn(bluetooth);
+	else if (strncmp(bluetooth->buffer, "SCHEDULER UP OFF", strlen("SCHEDULER UP OFF")) == 0)
+		handleSchedulerUpTurnOff(bluetooth);
+	else if (strncmp(bluetooth->buffer, "SCHEDULER DOWN ON", strlen("SCHEDULER DOWN ON")) == 0)
+		handleSchedulerDownTurnOn(bluetooth);
+	else if (strncmp(bluetooth->buffer, "SCHEDULER DOWN OFF", strlen("SCHEDULER DOWN OFF")) == 0)
+		handleSchedulerDownTurnOff(bluetooth);
 	else
 		handleIncorrectCommand(bluetooth);
 
@@ -85,22 +101,22 @@ void handleSetLowerLDRcontrolLimit(Bluetooth* bluetooth) {
 
 void handlePrintMinLDRreading(Bluetooth* bluetooth) {
 	uint16_t ldrValue = getMinReading(&ldr);
-	printMinLDRreading(bluetooth, ldrValue);
+	printValue(bluetooth, "minLDRreading", ldrValue);
 }
 
 void handlePrintMaxLDRreading(Bluetooth* bluetooth) {
 	uint16_t ldrValue = getMaxReading(&ldr);
-	printMaxReading(bluetooth, ldrValue);
+	printValue(bluetooth, "maxLDRReading", ldrValue);
 }
 
 void handlePrintUpperLDRcontrolLimit(Bluetooth* bluetooth) {
 	uint16_t ldrValue = getUpperControlLimit(&ldr);
-	printUpperControlLimit(bluetooth, ldrValue);
+	printValue(bluetooth, "upperLDRcontrolLimit", ldrValue);
 }
 
 void handlePrintLowerLDRcontrolLimit(Bluetooth* bluetooth) {
 	uint16_t ldrValue = getLowerControlLimit(&ldr);
-	printLowerControlLimit(bluetooth, ldrValue);
+	printValue(bluetooth, "lowerLDRcontrolLimit", ldrValue);
 }
 
 void handleSetServoMaxPosition(Bluetooth* bluetooth) {
@@ -110,7 +126,7 @@ void handleSetServoMaxPosition(Bluetooth* bluetooth) {
 }
 void handlePrintServoMaxPosition(Bluetooth* bluetooth) {
 	uint16_t maxPostion = getMaxPositon(&servo);
-	printServoMaxPosition(bluetooth, maxPostion);
+	printValue(bluetooth, "servoMaxPosition", maxPostion);
 }
 
 void handleIncorrectCommand(Bluetooth* bluetooth) {
@@ -118,37 +134,58 @@ void handleIncorrectCommand(Bluetooth* bluetooth) {
 	HAL_UART_Transmit(&huart1, (uint8_t*)bluetooth->buffer, strlen(bluetooth->buffer), 500);
 }
 
-void printMinLDRreading(Bluetooth* bluetooth, uint16_t ldrValue) {
-	char info[50];
-	sprintf(info, "minLdrReading=%d", ldrValue);
-	strcat(info, "\n");
-	HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
+void handleTimerUp(Bluetooth* bluetooth) {
+	handleTimerUp(bluetooth);
+	uint16_t newServoUpTime_ = getLastWordAsInt(bluetooth->buffer);
+	setServoUpTime(&servoScheduler, newServoUpTime_);
+	turnOnServoUp(&servoScheduler);
+	printValue(bluetooth, "Servo up in", newServoUpTime_);
 }
 
-void printMaxReading(Bluetooth* bluetooth, uint16_t ldrValue) {
-	char info[50];
-	sprintf(info, "maxLdrReading=%d", ldrValue);
-	strcat(info, "\n");
-	HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
+void handleTimerDown(Bluetooth* bluetooth) {
+	uint16_t newServoUpTime_ = getLastWordAsInt(bluetooth->buffer);
+	setServoUpTime(&servoScheduler, newServoUpTime_);
+	turnOnServoUp(&servoScheduler);
+	printValue(bluetooth, "Servo down in", newServoUpTime_);
 }
 
-void printUpperControlLimit(Bluetooth* bluetooth, uint16_t ldrValue) {
-	char info[50];
-	sprintf(info, "upperLdrControlLimit=%d", ldrValue);
-	strcat(info, "\n");
-	HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
+void handleTurnOnLDR(Bluetooth* bluetooth) {
+	turn0n(&ldr);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"LDR is turn on\n", strlen("LDR is turn on\n"), 500);
 }
 
-void printLowerControlLimit(Bluetooth* bluetooth, uint16_t ldrValue) {
-	char info[50];
-	sprintf(info, "lowerLdrControlLimit=%d", ldrValue);
-	strcat(info, "\n");
-	HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
+void handleTurnOffLDR(Bluetooth* bluetooth) {
+	turnOff(&ldr);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"LDR is turn off\n", strlen("LDR is turn off\n"), 500);
 }
 
-void printServoMaxPosition(Bluetooth* bluetooth, uint16_t maxPostion_) {
+void handleSchedulerUpTurnOn(Bluetooth* bluetooth) {
+	turnOnServoUp(&servoScheduler);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"Scheduler up is turn on\n", strlen("Scheduler up is turn on\n"), 500);
+}
+
+void handleSchedulerUpTurnOff(Bluetooth* bluetooth) {
+	turnOffServoUp(&servoScheduler);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"Scheduler up is turn off\n", strlen("Scheduler up is turn off\n"), 500);
+}
+
+void handleSchedulerDownTurnOn(Bluetooth* bluetooth) {
+	turnOnServoDown(&servoScheduler);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"Scheduler down is turn on\n", strlen("Scheduler down is turn on\n"), 500);
+}
+
+void handleSchedulerDownTurnOff(Bluetooth* bluetooth) {
+	turnOffServoDown(&servoScheduler);
+	HAL_UART_Transmit(&huart1, (uint8_t*)"Scheduler down is turn off\n", strlen("Scheduler down is turn off\n"), 500);
+}
+
+
+void printValue(Bluetooth* bluetooth, char* text, uint16_t value) {
 	char info[50];
-	sprintf(info, "servoMaxPosition=%d", maxPostion_);
+	char stringValue[50];
+	strcpy(info, text);
+	sprintf(stringValue, "=%d", value);
+	strcat(info, stringValue);
 	strcat(info, "\n");
 	HAL_UART_Transmit(&huart1, (uint8_t*)info, strlen(info), 500);
 }

@@ -1,7 +1,7 @@
 Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.o: \
  ../Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.c \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h \
- ../Core/Inc/stm32l0xx_hal_conf.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/stm32l0xx_hal_conf.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_def.h \
  ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h \
@@ -35,7 +35,7 @@ Drivers/STM32L0xx_HAL_Driver/Src/stm32l0xx_hal_flash.o: \
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:
 
-../Core/Inc/stm32l0xx_hal_conf.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/stm32l0xx_hal_conf.h:
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc.h:
 

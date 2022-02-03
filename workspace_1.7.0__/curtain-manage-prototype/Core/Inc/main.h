@@ -39,6 +39,7 @@ extern "C" {
 #include "LDR.h"
 #include "Servo.h"
 #include "bluetooth.h"
+#include "ServoScheduler.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -70,7 +71,11 @@ void Error_Handler(void);
  * @brief Funkcja wysterowująca przy pomocy pomiarów z fotorezystora.
  * 
 **/
+void controlServo();
+void controlLDR();
+void controlServoScheduler();
 void setBlindWithLDR();
+
 
 /* USER CODE END Private defines */
 

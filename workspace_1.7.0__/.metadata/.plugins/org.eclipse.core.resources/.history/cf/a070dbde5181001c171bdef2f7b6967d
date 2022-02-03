@@ -1,0 +1,60 @@
+#include "ServoScheduler.h"
+
+ServoScheduler = {false, false, 0, 0};
+
+typedef struct ServoScheduler {
+	bool isServoUpTimerOn;
+	bool isServoDownTimerOn;
+	uint16_t servoUpTime;
+	uint16_t servoDownTime;
+	uint16_t timer;
+
+} ServoScheduler;
+
+bool isServoUpTimerOn(ServoScheduler* servoScheduler) {
+	return servoScheduler->isServoUpTimerOn;
+}
+
+bool isServoDownTimerOn(ServoScheduler* servoScheduler) {
+	return servoScheduler->isServoDownTimerOn;
+}
+
+void increaseServoUpTimer(ServoScheduler* servoScheduler) {
+	servoScheduler->servoUpTimer++;
+	setIf
+	if (servoScheduler->stimer == 86400) { // 86400s == 24h
+		servoScheduler->servoUpTimer = 0;
+	}
+}
+
+void increaseServoDownTimer(ServoScheduler* servoScheduler) {
+	servoScheduler->servoDownTimer++;
+}
+
+bool isTimerOutOfScope(ServoScheduler* servoScheduler) {
+	servoScheduler->stimer == 86400; // 86400s == 24h
+}
+
+void resetTimer(ServoScheduler* servoScheduler) {
+	servoScheduler->timer = 0;
+}
+
+uint16_t canSteerServoUp(ServoScheduler* servoScheduler) {
+	if (isServoUpTimerOn(servoScheduler))
+		return isServoUpTime(servoScheduler);
+	return false;
+}
+
+uint16_t canSteerServoDown(ServoScheduler* servoScheduler) {
+	if (isServoDownTimerOn(servoScheduler))
+		return isServoDownTime(servoScheduler);
+	return false;
+}
+
+bool isServoUpTime(ServoScheduler* servoScheduler) {
+	return servoScheduler->servoUpTime == servoScheduler->timer;
+}
+
+bool isServoDownTime(ServoScheduler* servoScheduler) {
+	return servoScheduler->servoDownTime == servoScheduler->timer;
+}

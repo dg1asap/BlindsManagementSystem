@@ -124,39 +124,16 @@ void handlePrintServoMaxPosition(Bluetooth* bluetooth);
 **/
 void handleIncorrectCommand(Bluetooth* bluetooth);
 
-/**
- * @brief Funkcja obsługująca wysyłanie przez bluetooth minimalne fabryczne natężenie światła.
- * @param bluetooth Instancja struktury Bluetooth.
- * @param ldrValue Odczyt z fotorezystora.
-**/
-void printMinLDRreading(Bluetooth* bluetooth, uint16_t ldrValue);
+void handleTimerUp(Bluetooth* bluetooth);
+void handleTimerDown(Bluetooth* bluetooth);
+void handleTurnOnLDR(Bluetooth* bluetooth);
+void handleTurnOffLDR(Bluetooth* bluetooth);
+void handleSchedulerUpTurnOn(Bluetooth* bluetooth);
+void handleSchedulerUpTurnOff(Bluetooth* bluetooth);
+void handleSchedulerDownTurnOn(Bluetooth* bluetooth);
+void handleSchedulerDownTurnOff(Bluetooth* bluetooth);
 
-/**
- * @brief Funkcja obsługująca wysyłanie przez bluetooth maksymalne fabryczne natężenie światła.
- * @param bluetooth Instancja struktury Bluetooth.
- * @param ldrValue Odczyt z fotorezystora.
-**/
-void printMaxReading(Bluetooth* bluetooth, uint16_t ldrValue);
 
-/**
- * @brief Funkcja obsługująca wysyłanie przez bluetooth górne fabryczne natężenie światła.
- * @param bluetooth Instancja struktury Bluetooth.
- * @param ldrValue Odczyt z fotorezystora.
-**/
-void printUpperControlLimit(Bluetooth* bluetooth, uint16_t ldrValue);
-
-/**
- * @brief Funkcja obsługująca wysyłanie przez bluetooth dolne fabryczne natężenie światła.
- * @param bluetooth Instancja struktury Bluetooth.
- * @param ldrValue Odczyt z fotorezystora.
-**/
-void printLowerControlLimit(Bluetooth* bluetooth, uint16_t ldrValue);
-
-/**
- * @brief Funkcja obsługująca wysyłanie przez bluetooth długości rolety.
- * @param bluetooth Instancja struktury Bluetooth.
- * @param ldrValue Odczyt z fotorezystora.
-**/
-void printServoMaxPosition(Bluetooth* bluetooth, uint16_t maxPostion);
+void printValue(Bluetooth* bluetooth, char* text, uint16_t value);
 
 #endif /* INC_MYLIBRARY_H_ */

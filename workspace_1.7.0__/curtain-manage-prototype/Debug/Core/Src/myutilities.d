@@ -1,7 +1,8 @@
 Core/Src/myutilities.o: ../Core/Src/myutilities.c \
- ../Core/Inc/myutilities.h ../Core/Inc/main.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/myutilities.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/main.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h \
- ../Core/Inc/stm32l0xx_hal_conf.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/stm32l0xx_hal_conf.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_def.h \
  ../Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l0xx.h \
@@ -32,16 +33,21 @@ Core/Src/myutilities.o: ../Core/Src/myutilities.c \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_tim_ex.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h \
- ../Core/Inc/LDR.h ../Core/Inc/adc.h ../Core/Inc/Servo.h \
- ../Core/Inc/bluetooth.h ../Core/Inc/tim.h ../Core/Inc/myutilities.h
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/LDR.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/adc.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/Servo.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/bluetooth.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/tim.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/myutilities.h \
+ /home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/ServoScheduler.h
 
-../Core/Inc/myutilities.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/myutilities.h:
 
-../Core/Inc/main.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/main.h:
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h:
 
-../Core/Inc/stm32l0xx_hal_conf.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/stm32l0xx_hal_conf.h:
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_rcc.h:
 
@@ -103,14 +109,16 @@ Core/Src/myutilities.o: ../Core/Src/myutilities.c \
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h:
 
-../Core/Inc/LDR.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/LDR.h:
 
-../Core/Inc/adc.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/adc.h:
 
-../Core/Inc/Servo.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/Servo.h:
 
-../Core/Inc/bluetooth.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/bluetooth.h:
 
-../Core/Inc/tim.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/tim.h:
 
-../Core/Inc/myutilities.h:
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/myutilities.h:
+
+/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc/ServoScheduler.h:

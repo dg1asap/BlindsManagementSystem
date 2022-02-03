@@ -1,5 +1,6 @@
 "./Core/Src/LDR.o"
 "./Core/Src/Servo.o"
+"./Core/Src/ServoScheduler.o"
 "./Core/Src/adc.o"
 "./Core/Src/bluetooth.o"
 "./Core/Src/gpio.o"

@@ -1,0 +1,17 @@
+#ifndef INC_SERVOSCHEDULER_H_
+#define INC_SERVOSCHEDULER_H_
+
+#include "main.h"
+#incldue <bool.h>
+
+typedef struct ServoScheduler {
+	bool isTimerUpOn;
+	bool isTImerDownOn;
+	uint16_t servoTimerUp;
+	uint16_t servoTimerDown;
+} ServoScheduler;
+
+extern ServoScheduler servoScheduler;
+
+
+#endif /* INC_SERVOSCHEDULER_H_ */

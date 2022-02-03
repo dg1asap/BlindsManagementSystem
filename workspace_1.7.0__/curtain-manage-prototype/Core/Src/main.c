@@ -44,7 +44,7 @@
 
 /* USER CODE END PM */
 
-/* Private variables --------------------------------------------------------*/
+/* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
 
@@ -62,18 +62,8 @@ void SystemClock_Config(void);
 /* USER CODE END 0 */
 
 /**
-  * @brief System zarządzający roletą okienną.
-  * System pracuje w dwóch trybach – naświetlenia i manualnym.
-  * W trybie naświetlenia co pewien okres nastąpi pomiar natężenia światła.
-  * Co 5 pomiarów nastąpi wyciągnięcie średniej z pięciu ostatnich pomiarów
-  * i porównanie jej natężeniami granicznymi. W zależności od wyniku
-  * porównania serwomechanizm wysteruje roletę. Gdy natężenie będzie
-  * większe od górnego natężenia granicznego, roleta zostanie podniesiona.
-  * Gdy natężenie będzie mniejsze od dolnego natężenia granicznego, roleta
-  * zostanie opuszczona. W trybie manualnym użytkownik, przy pomocy
-  * aplikacji rozwija albo zwija zasłonę według własnego uznania.
-  * Autorzy: Damian Górski, Daniel Mierzejewski.
-  * @return int
+  * @brief  The application entry point.
+  * @retval int
   */
 int main(void)
 {
@@ -106,6 +96,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USART1_UART_Init();
   MX_TIM2_Init();
+  MX_TIM22_Init();
   /* USER CODE BEGIN 2 */
   HAL_Delay(1200);
   memset(bluetooth.buffer, 0, sizeof(bluetooth.buffer));
@@ -113,6 +104,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim6);
   HAL_TIM_Base_Start_IT(&htim7);
+  HAL_TIM_Base_Start_IT(&htim22);
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
   __HAL_UART_ENABLE_IT(&huart2, UART_IT_RXNE);
   /* USER CODE END 2 */
@@ -177,12 +169,29 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim->Instance == TIM2)
-		steer(&servo);
-	else if (htim->Instance == TIM6) {
-		if (areNewMeassures(&ldr))
-			setBlindWithLDR();
-		measure(&ldr);
-	}
+		controlServo();
+	else if (htim->Instance == TIM6)
+		controlLDR();
+	else if (htim->Instance == TIM22)
+		controlServoScheduler();
+}
+
+void controlServo() {
+	steer(&servo);
+}
+
+void controlLDR() {
+	if (areNewMeassures(&ldr) && isTurnOn(&ldr))
+		setBlindWithLDR();
+	measure(&ldr);
+}
+
+void controlServoScheduler() {
+	count(&servoScheduler);
+	if (canSteerServoUp(&servoScheduler))
+		setPositionToMax(&servo);
+	if (canSteerServoDown(&servoScheduler))
+		setPositionToMin(&servo);
 }
 
 void setBlindWithLDR() {

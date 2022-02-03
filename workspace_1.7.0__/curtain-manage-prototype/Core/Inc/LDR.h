@@ -33,6 +33,8 @@ typedef struct LDR {
 
     /** Aktualne natężenie światła, po przekroczeniu którego roleta się opuszcza. **/
 	uint16_t lowerControlLimit;
+
+	bool turnOn;
 } LDR;
 
 
@@ -179,5 +181,8 @@ uint16_t getUpperControlLimit(LDR* ldr);
 **/
 uint16_t getLowerControlLimit(LDR* ldr);
 
+bool isTurnOn(LDR* ldr);
+void turn0n(LDR* ldr);
+void turnOff(LDR* ldr);
 
 #endif /* INC_LDR_H_ */
