@@ -42,7 +42,6 @@ typedef struct LDR {
  * @brief Instancja struktury LDR, z przypisanymi parametrami początkowymi.
 **/
 extern LDR ldr;
-//void LDR_Init(LDR* ldr);
 
 /**
  * @brief Wskazuje poziom naświetlenia fotorezystora.

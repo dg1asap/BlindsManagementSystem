@@ -67,13 +67,25 @@ void Error_Handler(void);
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
+
 /**
- * @brief Funkcja wysterowująca przy pomocy pomiarów z fotorezystora.
- * 
+ * @brief Funkcja odpowiedzialan za kontrole fukncjonalności związanych z pracą Serwomechanizmu.
 **/
 void controlServo();
+
+/**
+ * @brief Funkcja odpowiedzialan za kontrole fukncjonalności związanych z pracą LDR.
+**/
 void controlLDR();
+
+/**
+ * @brief Funkcja odpowiedzialan za kontrole fukncjonalności związanych z wysterowywaniem serwomechanizmu przy pomocy harmonogramu.
+**/
 void controlServoScheduler();
+
+/**
+ * @brief Funkcja wysterowująca przy pomocy pomiarów z fotorezystora.
+**/
 void setBlindWithLDR();
 
 
