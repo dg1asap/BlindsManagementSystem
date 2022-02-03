@@ -587,15 +587,15 @@ $(document).ready(function(){initNavTree('cmsis__iccarm_8h_source.html',''); ini
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    {</div>
 <div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>      <span class="keywordflow">if</span> (data == 0U) { <span class="keywordflow">return</span> 32U; }</div>
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span> </div>
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>      uint32_t count = 0U;</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>      uint32_t <a class="code hl_function" href="_servo_scheduler_8h.html#a463a6abaa8171e5b9a84bc3fc73a8bd7">count</a> = 0U;</div>
 <div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>      uint32_t mask = 0x80000000U;</div>
 <div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span> </div>
 <div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>      <span class="keywordflow">while</span> ((data &amp; mask) == 0U)</div>
 <div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>      {</div>
-<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>        count += 1U;</div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>        <a class="code hl_function" href="_servo_scheduler_8h.html#a463a6abaa8171e5b9a84bc3fc73a8bd7">count</a> += 1U;</div>
 <div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>        mask = mask &gt;&gt; 1U;</div>
 <div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>      }</div>
-<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>      <span class="keywordflow">return</span> count;</div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>      <span class="keywordflow">return</span> <a class="code hl_function" href="_servo_scheduler_8h.html#a463a6abaa8171e5b9a84bc3fc73a8bd7">count</a>;</div>
 <div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>    }</div>
 <div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span> </div>
 <div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>    <a class="code hl_define" href="cmsis__iccarm_8h.html#aba87361bfad2ae52cfe2f40c1a1dbf9c">__STATIC_INLINE</a> uint32_t <a class="code hl_function" href="group___c_m_s_i_s___core___instruction_interface.html#gaf944a7b7d8fd70164cca27669316bcf7">__RBIT</a>(uint32_t v)</div>
@@ -1023,6 +1023,7 @@ $(document).ready(function(){initNavTree('cmsis__iccarm_8h_source.html',''); ini
 <div class="line"><a id="l00933" name="l00933"></a><span class="lineno">  933</span><span class="preprocessor">#pragma diag_default=Pe177</span></div>
 <div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span> </div>
 <div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span><span class="preprocessor">#endif </span><span class="comment">/* __CMSIS_ICCARM_H__ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a_servo_scheduler_8h_html_a463a6abaa8171e5b9a84bc3fc73a8bd7"><div class="ttname"><a href="_servo_scheduler_8h.html#a463a6abaa8171e5b9a84bc3fc73a8bd7">count</a></div><div class="ttdeci">void count(ServoScheduler *servoScheduler)</div><div class="ttdoc">Funkcja inkrementująca liczbę sekund co sekundę i zerująca ją, gdy miną 24 godziny.</div><div class="ttdef"><b>Definition:</b> ServoScheduler.c:29</div></div>
 <div class="ttc" id="acmsis__iccarm_8h_html_a1305dc7358478164e7ae459adad136d9"><div class="ttname"><a href="cmsis__iccarm_8h.html#a1305dc7358478164e7ae459adad136d9">__iar_uint16_read</a></div><div class="ttdeci">__IAR_FT uint16_t __iar_uint16_read(void const *ptr)</div><div class="ttdef"><b>Definition:</b> cmsis_iccarm.h:171</div></div>
 <div class="ttc" id="acmsis__iccarm_8h_html_a1378040bcf22428955c6e3ce9c2053cd"><div class="ttname"><a href="cmsis__iccarm_8h.html#a1378040bcf22428955c6e3ce9c2053cd">__ASM</a></div><div class="ttdeci">#define __ASM</div><div class="ttdef"><b>Definition:</b> cmsis_iccarm.h:110</div></div>
 <div class="ttc" id="acmsis__iccarm_8h_html_a3e769b5b7bc4f5d17d8da74663073393"><div class="ttname"><a href="cmsis__iccarm_8h.html#a3e769b5b7bc4f5d17d8da74663073393">__IAR_FT</a></div><div class="ttdeci">#define __IAR_FT</div><div class="ttdef"><b>Definition:</b> cmsis_iccarm.h:35</div></div>
@@ -1047,7 +1048,7 @@ $(document).ready(function(){initNavTree('cmsis__iccarm_8h_source.html',''); ini
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_60925fc218da8ca7908795bf5f624060.html">Drivers</a></li><li class="navelem"><a class="el" href="dir_bd09ff09a9c7d83a4c030dbdaee94d76.html">CMSIS</a></li><li class="navelem"><a class="el" href="dir_5d6a8c3e4e61116f4938be35d8adfd18.html">Include</a></li><li class="navelem"><a class="el" href="cmsis__iccarm_8h.html">cmsis_iccarm.h</a></li>
+    <li class="navelem"><a class="el" href="dir_4c4cf36c2d9eea2521e35a4672d1c86e.html">workspace_1.7.0__</a></li><li class="navelem"><a class="el" href="dir_06a561f76b6164bcfdeee1e6f6a62760.html">curtain-manage-prototype</a></li><li class="navelem"><a class="el" href="dir_2006ca96eb118cba51e99ac6b565d4b2.html">Drivers</a></li><li class="navelem"><a class="el" href="dir_382470e179c82e002fca6262a1f41a95.html">CMSIS</a></li><li class="navelem"><a class="el" href="dir_c409060472374f8fcdee5f3713460500.html">Include</a></li><li class="navelem"><a class="el" href="cmsis__iccarm_8h.html">cmsis_iccarm.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

@@ -124,16 +124,60 @@ void handlePrintServoMaxPosition(Bluetooth* bluetooth);
 **/
 void handleIncorrectCommand(Bluetooth* bluetooth);
 
+/**
+ * @brief Funkcja obsługująca porę podwyższenia się rolety.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleTimerUp(Bluetooth* bluetooth);
+
+/**
+ * @brief Funkcja obsługująca porę obniżenia się rolety.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleTimerDown(Bluetooth* bluetooth);
+
+/**
+ * @brief Funkcja włączająca tryb automatyczny, gdzie za sterowanie odpowiada fotorezystor.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleTurnOnLDR(Bluetooth* bluetooth);
+
+/**
+ * @brief Funkcja wyłączająca tryb automatyczny, gdzie za sterowanie odpowiada fotorezystor.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleTurnOffLDR(Bluetooth* bluetooth);
+
+/**
+ * @brief Funkcja włączająca tryb harmonogramu dla rozwinięcia rolety.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleSchedulerUpTurnOn(Bluetooth* bluetooth);
+
+/**
+ * @brief Funkcja wyłączająca tryb harmonogramu dla rozwinięcia rolety.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleSchedulerUpTurnOff(Bluetooth* bluetooth);
+
+/**
+ * @brief Funkcja włączająca tryb harmonogramu dla zwinięcia rolety.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleSchedulerDownTurnOn(Bluetooth* bluetooth);
+
+/**
+ * @brief Funkcja wyłączająca tryb harmonogramu dla zwinięcia rolety.
+ * @param bluetooth Instancja struktury Bluetooth.
+**/
 void handleSchedulerDownTurnOff(Bluetooth* bluetooth);
 
-
+/**
+ * @brief Funkcja wyświetlająca informację na ekranie.
+ * @param bluetooth Instancja struktury Bluetooth.
+ * @param text Ciąg znaków, który ma być wyświetlony.
+ * @param value Wartość, która ma by wyświetlona.
+**/
 void printValue(Bluetooth* bluetooth, char* text, uint16_t value);
 
 #endif /* INC_MYLIBRARY_H_ */

@@ -113,6 +113,8 @@ Functions</h2></td></tr>
 <tr class="separator:abbf5454212cb039fb90d523b2473af91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1a30e036c07055e19487b8267790bac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#af1a30e036c07055e19487b8267790bac">MX_TIM7_Init</a> (void)</td></tr>
 <tr class="separator:af1a30e036c07055e19487b8267790bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acad7d1d9b22cf408d0ed25dc05cdb9ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#acad7d1d9b22cf408d0ed25dc05cdb9ed">MX_TIM22_Init</a> (void)</td></tr>
+<tr class="separator:acad7d1d9b22cf408d0ed25dc05cdb9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae70bce6c39d0b570a7523b86738cec4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#ae70bce6c39d0b570a7523b86738cec4b">HAL_TIM_MspPostInit</a> (<a class="el" href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a> *htim)</td></tr>
 <tr class="separator:ae70bce6c39d0b570a7523b86738cec4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -126,6 +128,8 @@ Variables</h2></td></tr>
 <tr class="separator:a1564492831a79fa18466467c3420c3c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb71bf3ee68e2a051fbeec6c3ab3012d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#abb71bf3ee68e2a051fbeec6c3ab3012d">htim7</a></td></tr>
 <tr class="separator:abb71bf3ee68e2a051fbeec6c3ab3012d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a954d998992e5773abe466321473875f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tim_8h.html#a954d998992e5773abe466321473875f3">htim22</a></td></tr>
+<tr class="separator:a954d998992e5773abe466321473875f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This file contains all the function prototypes for the <a class="el" href="tim_8c.html" title="This file provides code for the configuration of the TIM instances.">tim.c</a> file. </p>
@@ -149,6 +153,24 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >TIM3 GPIO Configuration PA6 ---&mdash;&gt; TIM3_CH1</p>
+
+</div>
+</div>
+<a id="acad7d1d9b22cf408d0ed25dc05cdb9ed" name="acad7d1d9b22cf408d0ed25dc05cdb9ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acad7d1d9b22cf408d0ed25dc05cdb9ed">&#9670;&nbsp;</a></span>MX_TIM22_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_TIM22_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -247,6 +269,28 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a954d998992e5773abe466321473875f3" name="a954d998992e5773abe466321473875f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a954d998992e5773abe466321473875f3">&#9670;&nbsp;</a></span>htim22</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_t_i_m___handle_type_def.html">TIM_HandleTypeDef</a> htim22</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aac3d2c59ee0e3bbae1b99529a154eb62" name="aac3d2c59ee0e3bbae1b99529a154eb62"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac3d2c59ee0e3bbae1b99529a154eb62">&#9670;&nbsp;</a></span>htim3</h2>
 
@@ -318,7 +362,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_e2489e887f17afa3cbc07a4ec152cdd2.html">Inc</a></li><li class="navelem"><a class="el" href="tim_8h.html">tim.h</a></li>
+    <li class="navelem"><a class="el" href="dir_4c4cf36c2d9eea2521e35a4672d1c86e.html">workspace_1.7.0__</a></li><li class="navelem"><a class="el" href="dir_06a561f76b6164bcfdeee1e6f6a62760.html">curtain-manage-prototype</a></li><li class="navelem"><a class="el" href="dir_4c6e932da8f6e432bf2269c96c307288.html">Core</a></li><li class="navelem"><a class="el" href="dir_02a8bf2240f7fb5ec4951b633bc58e5f.html">Inc</a></li><li class="navelem"><a class="el" href="tim_8h.html">tim.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

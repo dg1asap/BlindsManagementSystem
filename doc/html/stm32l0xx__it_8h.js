@@ -5,6 +5,7 @@ var stm32l0xx__it_8h =
     [ "PendSV_Handler", "stm32l0xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623", null ],
     [ "SVC_Handler", "stm32l0xx__it_8h.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce", null ],
     [ "SysTick_Handler", "stm32l0xx__it_8h.html#ab5e09814056d617c521549e542639b7e", null ],
+    [ "TIM22_IRQHandler", "stm32l0xx__it_8h.html#acfe2a3881f75792fa99da6416a0bda71", null ],
     [ "TIM2_IRQHandler", "stm32l0xx__it_8h.html#a38ad4725462bdc5e86c4ead4f04b9fc2", null ],
     [ "TIM6_DAC_IRQHandler", "stm32l0xx__it_8h.html#a0839a45f331c4c067939b9c4533bbf4d", null ],
     [ "TIM7_IRQHandler", "stm32l0xx__it_8h.html#a98cff83252098363b2dbca9608df964e", null ],

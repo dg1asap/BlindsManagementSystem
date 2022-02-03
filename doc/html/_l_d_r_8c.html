@@ -151,10 +151,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a680f42eb6c4e90e86e05e27ba5458244"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_d_r_8c.html#a680f42eb6c4e90e86e05e27ba5458244">getLowerControlLimit</a> (<a class="el" href="struct_l_d_r.html">LDR</a> *<a class="el" href="_l_d_r_8c.html#ab90bdfc8a599808492d63e37d0ec2732">ldr</a>)</td></tr>
 <tr class="memdesc:a680f42eb6c4e90e86e05e27ba5458244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Funkcja zwracająca aktualne natężenie światła, po przekroczeniu którego roleta się opuszcza.  <a href="_l_d_r_8c.html#a680f42eb6c4e90e86e05e27ba5458244">More...</a><br /></td></tr>
 <tr class="separator:a680f42eb6c4e90e86e05e27ba5458244"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a875366bf338c7294bdde3e98cffdb7dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_d_r_8c.html#a875366bf338c7294bdde3e98cffdb7dc">isTurnOn</a> (<a class="el" href="struct_l_d_r.html">LDR</a> *<a class="el" href="_l_d_r_8c.html#ab90bdfc8a599808492d63e37d0ec2732">ldr</a>)</td></tr>
+<tr class="separator:a875366bf338c7294bdde3e98cffdb7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a843c5a728baabe624574104b9440eba6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_d_r_8c.html#a843c5a728baabe624574104b9440eba6">turn0n</a> (<a class="el" href="struct_l_d_r.html">LDR</a> *<a class="el" href="_l_d_r_8c.html#ab90bdfc8a599808492d63e37d0ec2732">ldr</a>)</td></tr>
+<tr class="separator:a843c5a728baabe624574104b9440eba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87ca5cec5621e30cfc5f5553cf2e281b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_d_r_8c.html#a87ca5cec5621e30cfc5f5553cf2e281b">turnOff</a> (<a class="el" href="struct_l_d_r.html">LDR</a> *<a class="el" href="_l_d_r_8c.html#ab90bdfc8a599808492d63e37d0ec2732">ldr</a>)</td></tr>
+<tr class="separator:a87ca5cec5621e30cfc5f5553cf2e281b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab90bdfc8a599808492d63e37d0ec2732"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_d_r.html">LDR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_d_r_8c.html#ab90bdfc8a599808492d63e37d0ec2732">ldr</a> = {{0}, 0, 1, 1, 3000, 2000, 500}</td></tr>
+<tr class="memitem:ab90bdfc8a599808492d63e37d0ec2732"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_d_r.html">LDR</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_l_d_r_8c.html#ab90bdfc8a599808492d63e37d0ec2732">ldr</a> = {{0}, 0, 1, 1, 3000, 2000, 500, false}</td></tr>
 <tr class="memdesc:ab90bdfc8a599808492d63e37d0ec2732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instancja struktury <a class="el" href="struct_l_d_r.html" title="Struktura przechowująca kluczowe zmienne związane z fotorezystorem.">LDR</a>, z przypisanymi parametrami początkowymi.  <a href="_l_d_r_8c.html#ab90bdfc8a599808492d63e37d0ec2732">More...</a><br /></td></tr>
 <tr class="separator:ab90bdfc8a599808492d63e37d0ec2732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -478,6 +484,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a875366bf338c7294bdde3e98cffdb7dc" name="a875366bf338c7294bdde3e98cffdb7dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a875366bf338c7294bdde3e98cffdb7dc">&#9670;&nbsp;</a></span>isTurnOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isTurnOn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_l_d_r.html">LDR</a> *&#160;</td>
+          <td class="paramname"><em>ldr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a1f02540903392d17df6e374fcc3deab2" name="a1f02540903392d17df6e374fcc3deab2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f02540903392d17df6e374fcc3deab2">&#9670;&nbsp;</a></span>measure()</h2>
 
@@ -679,6 +703,42 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a843c5a728baabe624574104b9440eba6" name="a843c5a728baabe624574104b9440eba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a843c5a728baabe624574104b9440eba6">&#9670;&nbsp;</a></span>turn0n()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turn0n </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_l_d_r.html">LDR</a> *&#160;</td>
+          <td class="paramname"><em>ldr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87ca5cec5621e30cfc5f5553cf2e281b" name="a87ca5cec5621e30cfc5f5553cf2e281b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87ca5cec5621e30cfc5f5553cf2e281b">&#9670;&nbsp;</a></span>turnOff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void turnOff </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_l_d_r.html">LDR</a> *&#160;</td>
+          <td class="paramname"><em>ldr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="ab90bdfc8a599808492d63e37d0ec2732" name="ab90bdfc8a599808492d63e37d0ec2732"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab90bdfc8a599808492d63e37d0ec2732">&#9670;&nbsp;</a></span>ldr</h2>
@@ -687,7 +747,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_l_d_r.html">LDR</a> ldr = {{0}, 0, 1, 1, 3000, 2000, 500}</td>
+          <td class="memname"><a class="el" href="struct_l_d_r.html">LDR</a> ldr = {{0}, 0, 1, 1, 3000, 2000, 500, false}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -701,7 +761,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_c6310732a22f63c0c2fc5595561e68f1.html">Core</a></li><li class="navelem"><a class="el" href="dir_b596f468b52957496e4f78b80e029268.html">Src</a></li><li class="navelem"><a class="el" href="_l_d_r_8c.html">LDR.c</a></li>
+    <li class="navelem"><a class="el" href="dir_4c4cf36c2d9eea2521e35a4672d1c86e.html">workspace_1.7.0__</a></li><li class="navelem"><a class="el" href="dir_06a561f76b6164bcfdeee1e6f6a62760.html">curtain-manage-prototype</a></li><li class="navelem"><a class="el" href="dir_4c6e932da8f6e432bf2269c96c307288.html">Core</a></li><li class="navelem"><a class="el" href="dir_c7c30b58b03797732be35af6bd6de7c3.html">Src</a></li><li class="navelem"><a class="el" href="_l_d_r_8c.html">LDR.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

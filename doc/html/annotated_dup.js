@@ -59,6 +59,7 @@ var annotated_dup =
     [ "SCB_Type", "struct_s_c_b___type.html", "struct_s_c_b___type" ],
     [ "SCnSCB_Type", "struct_s_cn_s_c_b___type.html", "struct_s_cn_s_c_b___type" ],
     [ "Servo", "struct_servo.html", "struct_servo" ],
+    [ "ServoScheduler", "struct_servo_scheduler.html", "struct_servo_scheduler" ],
     [ "SPI_TypeDef", "struct_s_p_i___type_def.html", "struct_s_p_i___type_def" ],
     [ "SYSCFG_TypeDef", "struct_s_y_s_c_f_g___type_def.html", "struct_s_y_s_c_f_g___type_def" ],
     [ "SysTick_Type", "struct_sys_tick___type.html", "struct_sys_tick___type" ],

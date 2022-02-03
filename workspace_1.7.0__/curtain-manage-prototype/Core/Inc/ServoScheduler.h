@@ -63,15 +63,60 @@ void turnOffServoUp(ServoScheduler* servoScheduler);
 **/
 void turnOffServoDown(ServoScheduler* servoScheduler);
 
-
+/**
+ * @brief Funkcja inkrementująca liczbę sekund co sekundę i zerująca ją, gdy miną 24 godziny. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+**/
 void count(ServoScheduler* servoScheduler);
+
+/**
+ * @brief Funkcja zwracająca prawdę, gdy minęły 24 godziny. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+**/
 bool isTimerOutOfScope(ServoScheduler* servoScheduler);
+
+/**
+ * @brief Funkcja zerująca liczbę godzin. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+**/
 void resetTimer(ServoScheduler* servoScheduler);
+
+/**
+ * @brief Funkcja sprawdzająca, czy roleta może zostać podniesiona. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+**/
 uint16_t canSteerServoUp(ServoScheduler* servoScheduler);
+
+/**
+ * @brief Funkcja sprawdzająca, czy roleta może zostać obniżona. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+**/
 uint16_t canSteerServoDown(ServoScheduler* servoScheduler);
+
+/**
+ * @brief Funkcja zwracająca prawdę, gdy nastała pora podniesienia rolety. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+**/
 bool isServoUpTime(ServoScheduler* servoScheduler);
+
+/**
+ * @brief Funkcja zwracająca prawdę, gdy nastała pora obniżenia rolety. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+**/
 bool isServoDownTime(ServoScheduler* servoScheduler);
+
+/**
+ * @brief Funkcja ustawiająca porę podniesienia rolety. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+ * @param newServoUpTime Pora podniesienia rolety.
+**/
 void setServoUpTime(ServoScheduler* servoScheduler, uint16_t newServoUpTime);
+
+/**
+ * @brief Funkcja ustawiająca porę obniżenia rolety. 
+ * @param servoScheduler Instancja struktury ServoScheduler
+ * @param newServoUpTime Pora obniżenia rolety.
+**/
 void setServoDownTime(ServoScheduler* servoScheduler, uint16_t newServoDownTime);
 
 #endif /* INC_SERVOSCHEDULER_H_ */
