@@ -79,16 +79,19 @@ bool isPositiveLength(Servo* servo, uint16_t blindLength) {
 }
 
 void rollDown(Servo* servo) {
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1394);
+	//__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1394);
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1300);
 	servo->currentPositon--;
 }
 
 void rollUp(Servo* servo) {
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1568);
+//	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1568);
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1600);
 	servo->currentPositon++;
 }
 
 void stopRolling() {
 //	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1474);
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1454);
+//	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1450);
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 1448);
 }

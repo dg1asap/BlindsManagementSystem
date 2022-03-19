@@ -1,8 +1,8 @@
-main.c:68:5:main	8	static
-main.c:127:6:SystemClock_Config	136	static
-main.c:170:6:HAL_TIM_PeriodElapsedCallback	16	static
-main.c:179:6:controlServo	8	static
-main.c:183:6:controlLDR	8	static
-main.c:189:6:controlServoScheduler	8	static
-main.c:197:6:setBlindWithLDR	8	static
-main.c:210:6:Error_Handler	8	static,ignoring_inline_asm
+main.c:69:5:main	8	static
+main.c:129:6:SystemClock_Config	136	static
+main.c:175:6:HAL_TIM_PeriodElapsedCallback	16	static
+main.c:184:6:controlServo	8	static
+main.c:188:6:controlLDR	8	static
+main.c:194:6:controlServoScheduler	8	static
+main.c:202:6:setBlindWithLDR	8	static
+main.c:215:6:Error_Handler	8	static,ignoring_inline_asm

@@ -1,10 +1,20 @@
-20:09:35 **** Incremental Build of configuration Debug for project curtain-manage-prototype ****
+16:34:36 **** Incremental Build of configuration Debug for project curtain-manage-prototype ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Servo.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L073xx -c -I"/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/Core/Inc" -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/Servo.d" -MT"Core/Src/Servo.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/Servo.o"
+arm-none-eabi-gcc -o "curtain-manage-prototype.elf" @"objects.list"   -mcpu=cortex-m0plus -T"/home/asap/STM32CubeIDE/workspace_1.7.0__/curtain-manage-prototype/STM32L073RZTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="curtain-manage-prototype.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: curtain-manage-prototype.elf
+ 
 arm-none-eabi-size   curtain-manage-prototype.elf 
+arm-none-eabi-objdump -h -S  curtain-manage-prototype.elf  > "curtain-manage-prototype.list"
+arm-none-eabi-objcopy  -O binary  curtain-manage-prototype.elf  "curtain-manage-prototype.bin"
    text	   data	    bss	    dec	    hex	filename
-  29168	    152	   2336	  31656	   7ba8	curtain-manage-prototype.elf
+  30484	    152	   2368	  33004	   80ec	curtain-manage-prototype.elf
 Finished building: default.size.stdout
  
+Finished building: curtain-manage-prototype.bin
+ 
+Finished building: curtain-manage-prototype.list
+ 
 
-20:09:36 Build Finished. 0 errors, 0 warnings. (took 599ms)
+16:34:37 Build Finished. 0 errors, 0 warnings. (took 885ms)
 

@@ -16,5 +16,5 @@ Servo.c:69:6:isAboveNewPosition	16	static
 Servo.c:73:6:isShorterThan	16	static
 Servo.c:77:6:isPositiveLength	16	static
 Servo.c:81:6:rollDown	16	static
-Servo.c:86:6:rollUp	16	static
-Servo.c:91:6:stopRolling	8	static
+Servo.c:87:6:rollUp	16	static
+Servo.c:93:6:stopRolling	8	static

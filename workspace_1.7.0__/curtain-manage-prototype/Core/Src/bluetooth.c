@@ -47,8 +47,25 @@ void msgHandler(Bluetooth* bluetooth) {
 		handleSchedulerDownTurnOn(bluetooth);
 	else if (strncmp(bluetooth->buffer, "SCHEDULER DOWN OFF", strlen("SCHEDULER DOWN OFF")) == 0)
 		handleSchedulerDownTurnOff(bluetooth);
-	else
+	else if (strncmp(bluetooth->buffer, "RTC TIME", strlen("RTC TIME")) == 0) {
+			RTC_TimeTypeDef sTime1;
+			RTC_DateTypeDef sDate1;
+			char time[50];
+			HAL_RTC_GetTime(&hrtc, &sTime1, RTC_FORMAT_BCD);
+			HAL_RTC_GetDate(&hrtc, &sDate1, RTC_FORMAT_BCD);
+			time[0] = (sTime1.Hours / 16) + 48;
+			time[1] = (sTime1.Hours % 16) + 48;
+			time[2] = ':';
+			time[3] = (sTime1.Minutes / 16) + 48;
+			time[4] = (sTime1.Minutes % 16) + 48;
+			time[5] = ':';
+			time[6] = (sTime1.Seconds / 16) + 48;
+			time[7] = (sTime1.Seconds % 16) + 48;
+			time[8] = '\n';
+			HAL_UART_Transmit(&huart1, (uint8_t*)time, strlen(time), 500);
+	} else {
 		handleIncorrectCommand(bluetooth);
+	}
 
 	memset(bluetooth->buffer, 0, sizeof(bluetooth->buffer));
 	bluetooth->buffer_index = 0;

@@ -27,7 +27,11 @@ void turnOffServoDown(ServoScheduler* servoScheduler) {
 }
 
 void count(ServoScheduler* servoScheduler) {
-	servoScheduler->timer++;
+	RTC_TimeTypeDef sTime1;
+	RTC_DateTypeDef sDate1;
+	HAL_RTC_GetTime(&hrtc, &sTime1, RTC_FORMAT_BCD);
+	HAL_RTC_GetDate(&hrtc, &sDate1, RTC_FORMAT_BCD);
+	servoScheduler->timer = sTime1.Hours*60*60 + sTime1.Minutes*60 + sTime1.Seconds;
 	if (isTimerOutOfScope(servoScheduler))
 		resetTimer(servoScheduler);
 }
