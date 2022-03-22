@@ -1,0 +1,4 @@
+#Mon Jan 03 01:10:37 CET 2022
+base.0=C\:\\Users\\dg_1\\Desktop\\EEE\\Bluetooth Classic\\Android_BluetoothClassic\\Application\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

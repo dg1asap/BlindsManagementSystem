@@ -1,0 +1,39 @@
+com/example/android/common/logger/LogNode.java
+ com.example.android.common.logger.LogNode
+com/example/android/bluetoothchat/DeviceListActivity.java
+ com.example.android.bluetoothchat.DeviceListActivity
+ com.example.android.bluetoothchat.DeviceListActivity$1
+ com.example.android.bluetoothchat.DeviceListActivity$2
+ com.example.android.bluetoothchat.DeviceListActivity$3
+com/example/android/bluetoothchat/MainActivity.java
+ com.example.android.bluetoothchat.MainActivity
+com/example/android/bluetoothchat/BuildConfig.java
+ com.example.android.bluetoothchat.BuildConfig
+com/example/android/common/logger/Log.java
+ com.example.android.common.logger.Log
+com/example/android/common/logger/LogView.java
+ com.example.android.common.logger.LogView
+ com.example.android.common.logger.LogView$1
+com/example/android/bluetoothchat/Constants.java
+ com.example.android.bluetoothchat.Constants
+com/example/android/bluetoothchat/BluetoothChatService.java
+ com.example.android.bluetoothchat.BluetoothChatService
+ com.example.android.bluetoothchat.BluetoothChatService$AcceptThread
+ com.example.android.bluetoothchat.BluetoothChatService$ConnectThread
+ com.example.android.bluetoothchat.BluetoothChatService$ConnectedThread
+com/example/android/common/logger/LogFragment.java
+ com.example.android.common.logger.LogFragment
+ com.example.android.common.logger.LogFragment$1
+com/example/android/common/activities/SampleActivityBase.java
+ com.example.android.common.activities.SampleActivityBase
+com/example/android/common/logger/MessageOnlyLogFilter.java
+ com.example.android.common.logger.MessageOnlyLogFilter
+com/example/android/common/logger/LogWrapper.java
+ com.example.android.common.logger.LogWrapper
+com/example/android/bluetoothchat/BluetoothChatFragment.java
+ com.example.android.bluetoothchat.BluetoothChatFragment
+ com.example.android.bluetoothchat.BluetoothChatFragment$1
+ com.example.android.bluetoothchat.BluetoothChatFragment$2
+ com.example.android.bluetoothchat.BluetoothChatFragment$3
+ com.example.android.bluetoothchat.BluetoothChatFragment$4
+ com.example.android.bluetoothchat.BluetoothChatFragment$5
