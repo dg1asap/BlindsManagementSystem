@@ -6,23 +6,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/dg1asap/BlindManagementSystem">
+  <a href="https://github.com/dg1asap/BlindsManagementSystem">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">BlindManagementSystem</h3>
+  <h3 align="center">BlindsManagementSystem</h3>
 
   <p align="center">
 Window roller blind management system
     <br />
-    <a href="https://github.com/dg1asap/BlindManagementSystem">
+    <a href="https://github.com/dg1asap/BlindsManagementSystem">
     <br />
     <br />
     <a href="https://www.youtube.com/watch?v=koArA3Z6Q7I">View Demo</a>
     ·
-    <a href="https://github.com/dg1asap/BlindManagementSystem/issues">Report Bug</a>
+    <a href="https://github.com/dg1asap/BlindsManagementSystem/issues">Report Bug</a>
     ·
-    <a href="https://github.com/dg1asap/BlindManagementSystem/issues">Request Feature</a>
+    <a href="https://github.com/dg1asap/BlindsManagementSystem/issues">Request Feature</a>
   </p>
 </div>
 
@@ -98,7 +98,7 @@ Download and install the software below
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/dg1asap/BlindManagementSystem.git
+   git clone https://github.com/dg1asap/BlindsManagementSystem.git
    ```
    
 2. If you use other MCU than STM32L073RZ,
@@ -219,7 +219,7 @@ dg1asap - dg_1@wp.pl
 
 depegie - dan.mierzej@gmail.com
 
-Project Link: [https://github.com/dg1asap/BlindManagementSystem](https://github.com/dg1asap/BlindManagementSystem)
+Project Link: [https://github.com/dg1asap/BlindsManagementSystem](https://github.com/dg1asap/BlindsManagementSystem)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -237,13 +237,13 @@ Project Link: [https://github.com/dg1asap/BlindManagementSystem](https://github.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/dg1asap/BlindManagementSystem.svg?style=for-the-badge
-[contributors-url]: https://github.com/dg1asap/BlindManagementSystem/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/dg1asap/BlindManagementSystem.svg?style=for-the-badge
-[forks-url]: https://github.com/dg1asap/BlindManagementSystem/network/members
-[stars-shield]: https://img.shields.io/github/stars/dg1asap/BlindManagementSystem.svg?style=for-the-badge
-[stars-url]: https://github.com/dg1asap/BlindManagementSystem/stargazers
-[issues-shield]: https://img.shields.io/github/issues/dg1asap/BlindManagementSystem.svg?style=for-the-badge
-[issues-url]: https://github.com/dg1asap/BlindManagementSystem/issues
-[license-shield]: https://img.shields.io/github/license/dg1asap/BlindManagementSystem.svg?style=for-the-badge
-[license-url]: https://github.com/dg1asap/BlindManagementSystem/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/dg1asap/BlindsManagementSystem.svg?style=for-the-badge
+[contributors-url]: https://github.com/dg1asap/BlindsManagementSystem/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/dg1asap/BlindsManagementSystem.svg?style=for-the-badge
+[forks-url]: https://github.com/dg1asap/BlindsManagementSystem/network/members
+[stars-shield]: https://img.shields.io/github/stars/dg1asap/BlindsManagementSystem.svg?style=for-the-badge
+[stars-url]: https://github.com/dg1asap/BlindsManagementSystem/stargazers
+[issues-shield]: https://img.shields.io/github/issues/dg1asap/BlindsManagementSystem.svg?style=for-the-badge
+[issues-url]: https://github.com/dg1asap/BlindsManagementSystem/issues
+[license-shield]: https://img.shields.io/github/license/dg1asap/BlindsManagementSystem.svg?style=for-the-badge
+[license-url]: https://github.com/dg1asap/BlindsManagementSystem/blob/master/LICENSE.txt
